@@ -25,6 +25,9 @@ enum AclTarget {
   evs2_acl_role_p_permission,
   evs2user_p_role,
   evs2user_p_profile,
+  meter_p_reading,
+  meter_p_credit_balance,
+  meter_p_month_to_date_usage,
 }
 
 enum AclOperation {

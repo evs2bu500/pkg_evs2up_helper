@@ -10,6 +10,7 @@ export 'model/mdl_evs2_tariff.dart';
 export 'model/mdl_history.dart';
 export 'model/mdl_meter_info.dart';
 export 'model/mdl_meter_kiv.dart';
+export 'model/mdl_meter_kwh_history.dart';
 export 'model/mdl_meter_kwh_history_row.dart';
 export 'model/mdl_meter_kwh_reading.dart';
 export 'model/mdl_svc_claim.dart';
