@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class MeterKwhReading {
   // int? id;
   DateTime? kwhTimestamp;

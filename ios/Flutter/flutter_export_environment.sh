@@ -1,12 +1,12 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=c:\src\flutter"
-export "FLUTTER_APPLICATION_PATH=C:\_dev\_evs2\_evs2up\20230301\xt_ui"
+export "FLUTTER_ROOT=C:\Users\Administrator\flutter"
+export "FLUTTER_APPLICATION_PATH=C:\_evs2\_evs2up\20230616\pkg_evs2up_model"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_TARGET=lib\main.dart"
 export "FLUTTER_BUILD_DIR=build"
-export "FLUTTER_BUILD_NAME=0.0.1"
-export "FLUTTER_BUILD_NUMBER=0.0.1"
+export "FLUTTER_BUILD_NAME=0.1.1"
+export "FLUTTER_BUILD_NUMBER=0.1.1"
 export "DART_OBFUSCATION=false"
 export "TRACK_WIDGET_CREATION=true"
 export "TREE_SHAKE_ICONS=false"
