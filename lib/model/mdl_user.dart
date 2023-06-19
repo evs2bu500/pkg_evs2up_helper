@@ -1,5 +1,7 @@
 // import 'package:flutter/material.dart';
 
+import 'package:flutter/foundation.dart';
+
 import 'mdl_acl_permission.dart';
 
 enum UserKey {
@@ -75,6 +77,7 @@ class User {
   int maxRank = 0;
   List<String>? roles;
   List<String>? permissions;
+  String? address;
 
   User({
     this.id,
@@ -90,6 +93,7 @@ class User {
     this.maxRank = 0,
     this.roles,
     this.permissions,
+    this.address,
   });
 
   factory User.fromJson(Map<String, dynamic> respJson) {
@@ -102,23 +106,27 @@ class User {
       _rolePermMap = rolePermProfile['role_perm_map'];
 
       return User(
-          id: userJson['id'],
-          username: userJson['username'],
-          email: userJson['email'] ?? '',
-          // password: userJson['password'],
-          fullName: userJson['fullname'] ?? '',
-          phone: userJson['contact_number'] ?? '',
-          // role: userJson['role'],
-          enabled: userJson['enabled'],
-          // prefDarkMode: userJson['prefDarkMode'],
-          rolePermMap: _rolePermMap?.map(
-            (key, value) => MapEntry(
-              key,
-              Permission.fromJson(value),
-            ),
-          ));
+        id: userJson['id'],
+        username: userJson['username'],
+        email: userJson['email'] ?? '',
+        // password: userJson['password'],
+        fullName: userJson['fullname'] ?? '',
+        phone: userJson['contact_number'] ?? '',
+        // role: userJson['role'],
+        enabled: userJson['enabled'],
+        // prefDarkMode: userJson['prefDarkMode'],
+        rolePermMap: _rolePermMap?.map(
+          (key, value) => MapEntry(
+            key,
+            Permission.fromJson(value),
+          ),
+        ),
+        address: userJson['address'] ?? '',
+      );
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
       return User();
     }
   }
@@ -143,9 +151,12 @@ class User {
         maxRank: userJson['max_rank'],
         roles: roles,
         permissions: permissions,
+        address: userJson['address'] ?? '',
       );
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
       return User();
     }
   }
@@ -162,6 +173,7 @@ class User {
       'enabled': enabled,
       'pref_dark_mode': prefDarkMode,
       'role_perm_profile': rolePermMap,
+      'address': address,
     };
   }
 
@@ -178,6 +190,7 @@ class User {
       'enabled': enabled,
       'pref_dark_mode': prefDarkMode,
       'role_perm_profile': rolePermMap,
+      'address': address,
     };
   }
 
