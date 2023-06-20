@@ -26,6 +26,7 @@ enum PortalPage {
   projectService,
   buildingService,
   levelService,
+  levelDevices,
   equipmentService,
   alarmService,
 }
@@ -59,6 +60,7 @@ const projectService = 'Project Service';
 const buildingService = 'Building Service';
 const buildingLevels = 'Building Levels';
 const levelService = 'Level Service';
+const levelDevices = 'Level Devices';
 const equipmentService = 'Equipment Service';
 const alarmService = 'Alarm Service';
 
