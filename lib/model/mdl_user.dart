@@ -13,7 +13,7 @@ enum UserKey {
   phone,
   password,
   confirmPassword,
-  desPortal,
+  destPortal,
   enabled,
   sendVerificationEmail,
 }
