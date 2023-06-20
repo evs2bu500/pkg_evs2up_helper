@@ -1,7 +1,19 @@
 import 'mdl_acl_setting.dart';
 import 'package:flutter/material.dart';
 
-enum EVS2page {
+// enum PortalPage {
+//   userDashBoard,
+//   publicFront,
+//   userService,
+//   aclService,
+//   login,
+//   meterKiv,
+//   meterService,
+//   transactionService,
+//   creditService,
+// }
+
+enum PortalPage {
   userDashBoard,
   publicFront,
   userService,
@@ -11,6 +23,11 @@ enum EVS2page {
   meterService,
   transactionService,
   creditService,
+  projectService,
+  buildingService,
+  levelService,
+  equipmentService,
+  alarmService,
 }
 
 enum EVS2sec { Empty, Default, Create, Search, Detail }
@@ -38,6 +55,11 @@ const meterKiv = 'Meter KIV';
 const login = 'Login';
 const createUser = 'Create User';
 const userProfile = 'User Profile';
+const projectService = 'Project Service';
+const buildingService = 'Building Service';
+const levelService = 'Level Service';
+const equipmentService = 'Equipment Service';
+const alarmService = 'Alarm Service';
 
 class AppModel extends ChangeNotifier {
   double _screenWidth = 0;
@@ -81,19 +103,19 @@ class AppModel extends ChangeNotifier {
   //   notifyListeners();
   // }
 
-  EVS2page _pgCur = EVS2page.publicFront;
+  PortalPage _pgCur = PortalPage.publicFront;
   EVS2sec _secCur = EVS2sec.Empty;
 
   AppModel() {
-    _pgCur = EVS2page.publicFront;
+    _pgCur = PortalPage.publicFront;
     _secCur = EVS2sec.Empty;
   }
 
-  EVS2page get curPage => _pgCur;
+  PortalPage get curPage => _pgCur;
 
   EVS2sec get curSec => _secCur;
 
-  set curPage(EVS2page curPage) {
+  set curPage(PortalPage curPage) {
     _pgCur = curPage;
     notifyListeners();
   }

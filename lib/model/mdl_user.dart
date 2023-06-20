@@ -58,8 +58,9 @@ enum AclRole {
 }
 
 enum DesPortal {
-  Evs2Ops,
-  Evs2Consumer,
+  evs2op,
+  evs2cp,
+  bmsup,
 }
 
 class User {
