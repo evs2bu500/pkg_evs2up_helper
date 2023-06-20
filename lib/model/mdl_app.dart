@@ -57,6 +57,7 @@ const createUser = 'Create User';
 const userProfile = 'User Profile';
 const projectService = 'Project Service';
 const buildingService = 'Building Service';
+const buildingLevels = 'Building Levels';
 const levelService = 'Level Service';
 const equipmentService = 'Equipment Service';
 const alarmService = 'Alarm Service';
