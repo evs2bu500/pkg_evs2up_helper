@@ -29,6 +29,7 @@ enum PortalPage {
   levelDevices,
   equipmentService,
   alarmService,
+  paymentSuccess,
 }
 
 enum EVS2sec { Empty, Default, Create, Search, Detail }
@@ -53,6 +54,7 @@ const topupCredit = 'Topup Credit';
 const adjCredit = 'Adjust Credit';
 const meterInfo = 'Meter Info';
 const meterKiv = 'Meter KIV';
+const paymentSuccess = 'Payment Success';
 const login = 'Login';
 const createUser = 'Create User';
 const userProfile = 'User Profile';
