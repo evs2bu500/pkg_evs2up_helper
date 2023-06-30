@@ -16,6 +16,8 @@ enum UserKey {
   destPortal,
   enabled,
   sendVerificationEmail,
+  fcmRegToken,
+  address,
 }
 
 enum AclRole {
@@ -79,6 +81,7 @@ class User {
   List<String>? roles;
   List<String>? permissions;
   String? address;
+  String? fcmRegToken;
 
   User({
     this.id,
@@ -95,6 +98,7 @@ class User {
     this.roles,
     this.permissions,
     this.address,
+    this.fcmRegToken,
   });
 
   factory User.fromJson(Map<String, dynamic> respJson) {
@@ -123,6 +127,7 @@ class User {
           ),
         ),
         address: userJson['address'] ?? '',
+        fcmRegToken: userJson['fcm_reg_token'] ?? '',
       );
     } catch (e) {
       if (kDebugMode) {
@@ -153,6 +158,7 @@ class User {
         roles: roles,
         permissions: permissions,
         address: userJson['address'] ?? '',
+        fcmRegToken: userJson['fcm_reg_token'] ?? '',
       );
     } catch (e) {
       if (kDebugMode) {
@@ -175,6 +181,7 @@ class User {
       'pref_dark_mode': prefDarkMode,
       'role_perm_profile': rolePermMap,
       'address': address,
+      'fcm_reg_token': fcmRegToken,
     };
   }
 
@@ -192,6 +199,7 @@ class User {
       'pref_dark_mode': prefDarkMode,
       'role_perm_profile': rolePermMap,
       'address': address,
+      'fcm_reg_token': fcmRegToken,
     };
   }
 
