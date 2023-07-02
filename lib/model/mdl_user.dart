@@ -65,6 +65,13 @@ enum DesPortal {
   bmsup,
 }
 
+enum PushType {
+  none,
+  fcm,
+  apns,
+  longPolling,
+}
+
 class User {
   int? id = 0;
   String? username = '';
@@ -82,6 +89,7 @@ class User {
   List<String>? permissions;
   String? address;
   String? fcmRegToken;
+  PushType? pushType;
 
   User({
     this.id,
@@ -99,6 +107,7 @@ class User {
     this.permissions,
     this.address,
     this.fcmRegToken,
+    this.pushType,
   });
 
   factory User.fromJson(Map<String, dynamic> respJson) {
