@@ -3,6 +3,8 @@ import 'mdl_acl_target_ops.dart';
 enum AclScope {
   self,
   global,
+  evs2_nus,
+  evs2_ntu,
 }
 
 enum AclTarget {
