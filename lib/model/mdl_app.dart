@@ -54,6 +54,7 @@ const topupCredit = 'Topup Credit';
 const adjCredit = 'Adjust Credit';
 const meterInfo = 'Meter Info';
 const meterCommissioning = 'Meter Commissioning';
+const meterMassSet = 'Meter Mass Set';
 const meterKiv = 'Meter KIV';
 const paymentSuccess = 'Payment Success';
 const login = 'Login';
