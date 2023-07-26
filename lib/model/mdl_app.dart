@@ -72,6 +72,8 @@ const equipmentService = 'Equipment Service';
 const alarmService = 'Alarm Service';
 
 class AppModel extends ChangeNotifier {
+  String? appName;
+  String? appVer;
   double _screenWidth = 0;
   double get screenWidth => _screenWidth;
   // set screenWidth(double screenWidth) {
