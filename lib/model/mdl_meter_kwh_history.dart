@@ -120,10 +120,13 @@ class MeterKwhHistory {
     }
 
     return MeterHistoryMeta(
-        dominantInterval: dominantInterval,
-        duration: duration,
-        maxVal: maxVal,
-        avgVal: 0);
+      dominantInterval: dominantInterval,
+      duration: duration,
+      maxVal: maxVal,
+      avgVal: 0,
+      total: 0,
+      positiveCount: 0,
+    );
   }
 }
 
@@ -132,6 +135,8 @@ class MeterHistoryMeta {
   int duration = 0;
   double maxVal = 0;
   double avgVal = 0;
+  double total = 0;
+  int positiveCount = 0;
   List<Map<String, String>>? estIntervals;
 
   MeterHistoryMeta(
@@ -139,6 +144,8 @@ class MeterHistoryMeta {
       required this.duration,
       required this.maxVal,
       required this.avgVal,
+      required this.total,
+      required this.positiveCount,
       this.estIntervals});
 
   factory MeterHistoryMeta.fromJson(Map<String, dynamic> json) {
@@ -147,6 +154,8 @@ class MeterHistoryMeta {
         duration: json['duration'],
         maxVal: json['max_val'],
         avgVal: json['avg_val'],
+        total: json['total'],
+        positiveCount: json['positive_count'],
         estIntervals: json['est_intervals']);
   }
 
@@ -156,6 +165,8 @@ class MeterHistoryMeta {
       'duration': duration,
       'max_val': maxVal,
       'avg_val': avgVal,
+      'total': total,
+      'positive_count': positiveCount,
       'est_intervals': estIntervals
     };
   }
