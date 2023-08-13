@@ -18,7 +18,6 @@ enum UserKey {
   sendVerificationEmail,
   fcmRegToken,
   address,
-  projectScope,
 }
 
 enum AclRole {
@@ -91,6 +90,8 @@ class User {
   String? address;
   String? fcmRegToken;
   PushType? pushType;
+  String? scopeStr;
+  Map<String, String>? stripeEpts;
 
   User({
     this.id,
@@ -109,6 +110,8 @@ class User {
     this.address,
     this.fcmRegToken,
     this.pushType,
+    this.scopeStr,
+    this.stripeEpts,
   });
 
   factory User.fromJson(Map<String, dynamic> respJson) {
@@ -138,6 +141,8 @@ class User {
         ),
         address: userJson['address'] ?? '',
         fcmRegToken: userJson['fcm_reg_token'] ?? '',
+        scopeStr: userJson['scope_str'] ?? '',
+        // paySvcUrl: userJson['pay_svc_url'] ?? {},
       );
     } catch (e) {
       if (kDebugMode) {
@@ -169,6 +174,7 @@ class User {
         permissions: permissions,
         address: userJson['address'] ?? '',
         fcmRegToken: userJson['fcm_reg_token'] ?? '',
+        scopeStr: userJson['scope_str'] ?? '',
       );
     } catch (e) {
       if (kDebugMode) {
@@ -192,6 +198,7 @@ class User {
       'role_perm_profile': rolePermMap,
       'address': address,
       'fcm_reg_token': fcmRegToken,
+      'scope_str': scopeStr,
     };
   }
 
@@ -210,6 +217,7 @@ class User {
       'role_perm_profile': rolePermMap,
       'address': address,
       'fcm_reg_token': fcmRegToken,
+      'scope_str': scopeStr,
     };
   }
 
