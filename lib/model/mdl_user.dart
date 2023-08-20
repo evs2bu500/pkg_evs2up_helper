@@ -18,6 +18,7 @@ enum UserKey {
   sendVerificationEmail,
   fcmRegToken,
   address,
+  projectScope,
 }
 
 enum AclRole {

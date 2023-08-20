@@ -58,6 +58,7 @@ const meterInfo = 'Meter Info';
 const listSearchMeter = 'List/Search Meter';
 const meterCommissioning = 'Meter Commissioning';
 const meterBatchOps = 'Meter Batch Ops';
+const meterOps = 'Meter Ops';
 const meterKiv = 'Meter KIV';
 const meterAlarm = 'Meter Alarm';
 const paymentSuccess = 'Payment Success';
