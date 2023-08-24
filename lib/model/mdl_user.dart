@@ -60,10 +60,11 @@ enum AclRole {
   EVS2_Basic_User,
 }
 
-enum DesPortal {
+enum DestPortal {
   evs2op,
   evs2cp,
   bmsup,
+  none,
 }
 
 enum PushType {
@@ -93,6 +94,7 @@ class User {
   PushType? pushType;
   String? scopeStr;
   Map<String, String>? stripeEpts;
+  String? destPortal;
 
   User({
     this.id,
@@ -113,6 +115,7 @@ class User {
     this.pushType,
     this.scopeStr,
     this.stripeEpts,
+    this.destPortal,
   });
 
   factory User.fromJson(Map<String, dynamic> respJson) {
@@ -176,6 +179,7 @@ class User {
         address: userJson['address'] ?? '',
         fcmRegToken: userJson['fcm_reg_token'] ?? '',
         scopeStr: userJson['scope_str'] ?? '',
+        destPortal: userJson['dest_portal'] ?? '',
       );
     } catch (e) {
       if (kDebugMode) {
@@ -200,6 +204,7 @@ class User {
       'address': address,
       'fcm_reg_token': fcmRegToken,
       'scope_str': scopeStr,
+      'dest_portal': destPortal,
     };
   }
 
@@ -219,6 +224,7 @@ class User {
       'address': address,
       'fcm_reg_token': fcmRegToken,
       'scope_str': scopeStr,
+      'dest_portal': destPortal,
     };
   }
 
@@ -286,6 +292,19 @@ class User {
 
   bool canSeeOpsDrawer() {
     return isAdminAndUp() || hasRole2(AclRole.EVS2_Ops_Basic);
+  }
+
+  DestPortal getDestPortal() {
+    switch (destPortal) {
+      case 'evs2op':
+        return DestPortal.evs2op;
+      case 'evs2cp':
+        return DestPortal.evs2cp;
+      case 'bmsup':
+        return DestPortal.bmsup;
+      default:
+        return DestPortal.none;
+    }
   }
 
   bool isEmpty() {

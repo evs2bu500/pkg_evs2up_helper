@@ -1,6 +1,6 @@
-name: evs2up_model
-description: evs2up_model package project.
-version: 1.0.3
+name: evs2up_helper
+description: evs2up helper package project.
+version: 2.0.0
 homepage:
 
 environment:
