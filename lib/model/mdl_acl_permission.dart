@@ -31,6 +31,7 @@ enum AclTarget {
   meter_p_info,
   meter_p_credit_balance,
   meter_p_month_to_date_usage,
+  meter_p_bypass_policy,
 }
 
 enum AclOperation {
