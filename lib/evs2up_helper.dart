@@ -19,3 +19,5 @@ export 'model/mdl_svc_claim.dart';
 export 'model/mdl_svc_query.dart';
 export 'model/mdl_validation.dart';
 export 'model/user_provider.dart';
+export 'model/mdl_scope_profile.dart';
+export 'model/mdl_payment_mode_setting.dart';

@@ -1,17 +1,7 @@
+import 'package:evs2up_helper/model/mdl_scope_profile.dart';
+
 import 'mdl_acl_setting.dart';
 import 'package:flutter/material.dart';
-
-// enum PortalPage {
-//   userDashBoard,
-//   publicFront,
-//   userService,
-//   aclService,
-//   login,
-//   meterKiv,
-//   meterService,
-//   transactionService,
-//   creditService,
-// }
 
 enum PortalPage {
   userDashBoard,
@@ -74,27 +64,19 @@ const equipmentService = 'Equipment Service';
 const alarmService = 'Alarm Service';
 
 class AppModel extends ChangeNotifier {
+  ScopeProfile scopeProfile;
   String? appName;
   String? appVer;
   double _screenWidth = 0;
   double get screenWidth => _screenWidth;
-  // set screenWidth(double screenWidth) {
-  //   _screenWidth = screenWidth;
-  //   notifyListeners();
-  // }
   double _screenHeight = 0;
   double get screenHeight => _screenHeight;
-  // set screenHeight(double screenHeight) {
-  //   _screenHeight = screenHeight;
-  //   notifyListeners();
-  // }
 
-  // bool _splashed = false;
-  // bool get splashed => _splashed;
-  // set splashed(bool splashed) {
-  //   _splashed = splashed;
-  //   // notifyListeners();
-  // }
+  AppModel({
+    required this.scopeProfile,
+    this.appName,
+    this.appVer,
+  });
 
   AclSetting? aclSetting;
   AclSetting? get acl => aclSetting;
@@ -107,35 +89,6 @@ class AppModel extends ChangeNotifier {
   List<dynamic> get pgks => _pgks;
   set pgks(List<dynamic> pgks) {
     _pgks = pgks;
-    notifyListeners();
-  }
-
-  // bool _canSeeOpsDrawer = false;
-  // bool get canSeeOpsDrawer => _canSeeOpsDrawer;
-  // set canSeeOpsDrawer(bool canSeeOpsDrawer) {
-  //   _canSeeOpsDrawer = canSeeOpsDrawer;
-  //   notifyListeners();
-  // }
-
-  PortalPage _pgCur = PortalPage.publicFront;
-  EVS2sec _secCur = EVS2sec.Empty;
-
-  AppModel() {
-    _pgCur = PortalPage.publicFront;
-    _secCur = EVS2sec.Empty;
-  }
-
-  PortalPage get curPage => _pgCur;
-
-  EVS2sec get curSec => _secCur;
-
-  set curPage(PortalPage curPage) {
-    _pgCur = curPage;
-    notifyListeners();
-  }
-
-  set curSec(EVS2sec curSec) {
-    _secCur = curSec;
     notifyListeners();
   }
 }
