@@ -3,27 +3,6 @@ import 'package:evs2up_helper/model/mdl_scope_profile.dart';
 import 'mdl_acl_setting.dart';
 import 'package:flutter/material.dart';
 
-enum PortalPage {
-  userDashBoard,
-  publicFront,
-  userService,
-  aclService,
-  login,
-  meterKiv,
-  meterService,
-  transactionService,
-  creditService,
-  projectService,
-  buildingService,
-  levelService,
-  levelDevices,
-  equipmentService,
-  alarmService,
-  paymentSuccess,
-}
-
-enum EVS2sec { Empty, Default, Create, Search, Detail }
-
 //page titles
 const dashboard = 'Dashboard';
 const opsDashboard = 'Ops Dashboard';
@@ -64,15 +43,13 @@ const equipmentService = 'Equipment Service';
 const alarmService = 'Alarm Service';
 
 class AppModel extends ChangeNotifier {
+  String? subDomain;
   ScopeProfile scopeProfile;
   String? appName;
   String? appVer;
-  double _screenWidth = 0;
-  double get screenWidth => _screenWidth;
-  double _screenHeight = 0;
-  double get screenHeight => _screenHeight;
 
   AppModel({
+    required this.subDomain,
     required this.scopeProfile,
     this.appName,
     this.appVer,
