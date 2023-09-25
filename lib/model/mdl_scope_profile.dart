@@ -5,6 +5,7 @@ enum ProjectScope { evs2_nus, evs2_sutd, evs2_ntu }
 class ScopeProfile {
   ProjectScope projectScope;
   int timezone;
+  String? currency = 'SGD';
   Function? validateEntityName;
   bool? allowCustomAmount = false;
   List<PaymentModeSetting>? paymentSetting = [];
@@ -12,6 +13,7 @@ class ScopeProfile {
   ScopeProfile({
     required this.projectScope,
     required this.timezone,
+    this.currency,
     this.validateEntityName,
     this.allowCustomAmount,
     this.paymentSetting,
@@ -28,6 +30,7 @@ class ScopeProfile {
     return ScopeProfile(
       projectScope: json['project_scope'],
       timezone: json['timezone'],
+      currency: json['currency'],
       validateEntityName: json['validate_entity_name'],
       allowCustomAmount: json['allow_custom_amount'],
       paymentSetting: paymentSetting,
