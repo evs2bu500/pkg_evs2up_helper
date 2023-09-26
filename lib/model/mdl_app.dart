@@ -3,6 +3,25 @@ import 'package:evs2up_helper/model/mdl_scope_profile.dart';
 import 'mdl_acl_setting.dart';
 import 'package:flutter/material.dart';
 
+enum PortalPage {
+  userDashBoard,
+  publicFront,
+  userService,
+  aclService,
+  login,
+  meterKiv,
+  meterService,
+  transactionService,
+  creditService,
+  projectService,
+  buildingService,
+  levelService,
+  levelDevices,
+  equipmentService,
+  alarmService,
+  paymentSuccess,
+}
+
 //page titles
 const dashboard = 'Dashboard';
 const opsDashboard = 'Ops Dashboard';
@@ -54,6 +73,14 @@ class AppModel extends ChangeNotifier {
     this.appName,
     this.appVer,
   });
+
+  PortalPage _pgCur = PortalPage.publicFront;
+  PortalPage get curPage => _pgCur;
+
+  set curPage(PortalPage curPage) {
+    _pgCur = curPage;
+    notifyListeners();
+  }
 
   AclSetting? aclSetting;
   AclSetting? get acl => aclSetting;
