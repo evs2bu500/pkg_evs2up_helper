@@ -41,6 +41,7 @@ const tariffHistory = 'Tariff History';
 const creditService = 'Credit Service';
 const topupCredit = 'Topup Credit';
 const adjCredit = 'Adjust Credit';
+const creditOps = 'Credit Ops';
 const batchCrditOps = 'Batch Credit Ops';
 const meterInfo = 'Meter Info';
 const listSearchMeter = 'List/Search Meter';
