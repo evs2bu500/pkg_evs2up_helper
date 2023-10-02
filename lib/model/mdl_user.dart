@@ -9,6 +9,7 @@ enum UserKey {
   fullname,
   username,
   email,
+  emailVerified,
   identifier,
   phone,
   password,
@@ -78,6 +79,7 @@ class User {
   int? id = 0;
   String? username = '';
   String? email = '';
+  bool? emailVerified = false;
   String? fullName = '';
   String? password = '';
   String? phone = '';
@@ -100,6 +102,7 @@ class User {
     this.id,
     this.username,
     this.email,
+    this.emailVerified,
     this.password,
     this.fullName,
     this.phone,
@@ -131,6 +134,7 @@ class User {
         id: userJson['id'],
         username: userJson['username'],
         email: userJson['email'] ?? '',
+        emailVerified: userJson['email_verified'] ?? false,
         // password: userJson['password'],
         fullName: userJson['fullname'] ?? '',
         phone: userJson['contact_number'] ?? '',
@@ -167,6 +171,7 @@ class User {
         id: userJson['id'],
         username: userJson['username'],
         email: userJson['email'] ?? '',
+        emailVerified: userJson['email_verified'] ?? false,
         // password: userJson['password'],
         fullName: userJson['fullname'] ?? '',
         phone: userJson['contact_number'] ?? '',
@@ -194,6 +199,7 @@ class User {
       'id': id,
       'username': username,
       'email': email,
+      'email_verified': emailVerified,
       'password': password,
       'fullname': fullName,
       'contact_number': phone,
@@ -213,6 +219,7 @@ class User {
       'id': id,
       'username': username,
       'email': email,
+      'email_verified': emailVerified,
       'password': password,
       'fullname': fullName,
       'contact_number': phone,
@@ -233,6 +240,7 @@ class User {
       'id',
       'username',
       'email',
+      'email_verified',
       // 'password',
       'fullname',
       'contact_number',
@@ -246,6 +254,7 @@ class User {
       id.toString(),
       username,
       email,
+      emailVerified.toString(),
       // password,
       fullName,
       phone,
