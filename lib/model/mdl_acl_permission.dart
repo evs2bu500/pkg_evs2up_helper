@@ -4,6 +4,7 @@ enum AclScope {
   self,
   global,
   evs2_nus,
+  evs2_sutd,
   evs2_ntu,
 }
 
