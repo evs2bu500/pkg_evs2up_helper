@@ -1,6 +1,19 @@
 import 'package:evs2up_helper/model/mdl_payment_mode_setting.dart';
 
-enum ProjectScope { evs2_nus, evs2_sutd, evs2_ntu }
+enum ProjectScope {
+  sg_global,
+  evs2_nus,
+  evs2_sutd,
+  evs2_ntu,
+}
+
+enum SiteScope {
+  nus_pgpr,
+  nus_ync,
+  nus_rvrc,
+  sutd_campus,
+  ntu_mr,
+}
 
 class ScopeProfile {
   ProjectScope projectScope;

@@ -1,10 +1,28 @@
 import 'package:evs2up_helper/evs2up_helper.dart';
 
-const String activeScope = 'evs2_ntu';
+// const String activeScope = 'evs2_ntu';
 
 enum Evs2Project { NUS, SUTD, NTU, SMU, SIT, SUSS, NONE, ALL }
 
 final scopeProfile = [
+  {
+    'project_scope': ProjectScope.sg_global,
+    'timezone': 8,
+    'currency': 'SGD',
+    'validate_entity_displayname': (displayname) {
+      //8 digits, start with '1'
+      RegExp exp1 = RegExp(r'^1\d{7}$');
+      RegExp exp1 = RegExp(r'^2\d{7}$');
+      RegExp exp1 = RegExp(r'^3\d{7}$');
+      if (exp.hasMatch(displayname) ||
+          exp1.hasMatch(displayname) ||
+          exp2.hasMatch(displayname)) {
+        return null;
+      } else {
+        return 'Invalid displayname';
+      }
+    },
+  },
   {
     'project_scope': ProjectScope.evs2_nus,
     'timezone': 8,

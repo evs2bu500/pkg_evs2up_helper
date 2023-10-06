@@ -1,6 +1,7 @@
 library evs2up_helper;
 
 export 'helper/auth_helper.dart';
+export 'helper/project_helper.dart';
 
 export 'model/mdl_acl_permission.dart';
 export 'model/mdl_acl_setting.dart';
