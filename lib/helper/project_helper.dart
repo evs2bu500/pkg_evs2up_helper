@@ -1,60 +1,59 @@
-import '../.app_setting.dart';
 import '../evs2up_helper.dart';
 
-const List<Evs2Project> evs2Projects = [
-  Evs2Project.NUS,
-  Evs2Project.SUTD,
-  Evs2Project.NTU,
-  Evs2Project.ALL,
-  Evs2Project.NONE,
+enum ProjectScope { NUS, SUTD, NTU, SMU, SIT, SUSS, NONE, SG_ALL }
+
+enum SiteScope { NUS_PGPR, NUS_YNC, NUS_RVRC, SUTD_CAMPUS, NTU_MR, SG_ALL }
+
+const evs2Projects = [
+  ProjectScope.NUS,
+  ProjectScope.SUTD,
+  ProjectScope.NTU,
+  ProjectScope.SG_ALL,
+  ProjectScope.NONE,
 ];
 
-String getProjectString(Evs2Project project) {
-  switch (project) {
-    case Evs2Project.NUS:
-      return 'evs2_nus';
-    case Evs2Project.NTU:
-      return 'evs2_ntu';
-    case Evs2Project.SUTD:
-      return 'evs2_sutd';
-    case Evs2Project.SMU:
-      return 'evs2_smu';
-    case Evs2Project.SIT:
-      return 'evs2_sit';
-    case Evs2Project.SUSS:
-      return 'evs2_suss';
-    case Evs2Project.NONE:
-      return 'none';
-    case Evs2Project.ALL:
-      return 'global';
-  }
-}
+// enum ProjectScope {
+//   sg_global,
+//   evs2_nus,
+//   evs2_sutd,
+//   evs2_ntu,
+// }
 
-ScopeProfile? getActiveScopeProfile(String activeScope) {
-  for (var scopeProfile in scopeProfile) {
-    if ((scopeProfile['project_scope'] as ProjectScope).name == activeScope) {
+// enum SiteScope {
+//   nus_pgpr,
+//   nus_ync,
+//   nus_rvrc,
+//   sutd_campus,
+//   ntu_mr,
+// }
+
+// const List<ProjectScope> evs2Projects = [
+//   ProjectScope.NUS,
+//   ProjectScope.SUTD,
+//   ProjectScope.NTU,
+//   ProjectScope.ALL,
+//   ProjectScope.NONE,
+// ];
+
+ScopeProfile? getActivePortalScopeProfile(ProjectScope activePortalProjectScope,
+    List<Map<String, dynamic>> scopeProfiles) {
+  for (var scopeProfile in scopeProfiles) {
+    if (scopeProfile['project_scope'] == activePortalProjectScope) {
       return ScopeProfile.fromJson(scopeProfile);
     }
   }
   return null;
 }
 
-ScopeProfile? getUserScopeProfile(User user) {
-  String scopeStr = user.scopeStr ?? '';
-  if (scopeStr.isEmpty) {
-    return null;
-  }
-  String projectScopeStr = getProjectScopeStrFromScopeStr(scopeStr);
-  if (projectScopeStr.isEmpty) {
-    return null;
-  }
-  for (var scopeProfile in scopeProfile) {
-    if ((scopeProfile['project_scope'] as ProjectScope).name ==
-        projectScopeStr) {
-      return ScopeProfile.fromJson(scopeProfile);
+List<SiteScope> getProjectSites(
+    ProjectScope? projectScope, List<Map<String, dynamic>> scopeProfiles) {
+  if (projectScope == null) return [];
+  for (var scopeProfile in scopeProfiles) {
+    if (scopeProfile['project_scope'] == projectScope) {
+      return scopeProfile['project_sites'];
     }
   }
-  return null;
+  return [];
 }
 
 String getProjectScopeStrFromScopeStr(String scopeStr) {
@@ -70,16 +69,54 @@ String getProjectScopeStrFromScopeStr(String scopeStr) {
   return 'none';
 }
 
-AclScope getAclScope(Evs2Project evs2project) {
+String getProjectString(ProjectScope project) {
+  switch (project) {
+    case ProjectScope.NUS:
+      return 'evs2_nus';
+    case ProjectScope.NTU:
+      return 'evs2_ntu';
+    case ProjectScope.SUTD:
+      return 'evs2_sutd';
+    case ProjectScope.SMU:
+      return 'evs2_smu';
+    case ProjectScope.SIT:
+      return 'evs2_sit';
+    case ProjectScope.SUSS:
+      return 'evs2_suss';
+    case ProjectScope.NONE:
+      return 'none';
+    case ProjectScope.SG_ALL:
+      return 'global';
+  }
+}
+
+AclScope getAclProjectScope(ProjectScope? evs2project) {
   switch (evs2project) {
-    case Evs2Project.ALL:
+    case ProjectScope.SG_ALL:
       return AclScope.global;
-    case Evs2Project.NUS:
+    case ProjectScope.NUS:
       return AclScope.evs2_nus;
-    case Evs2Project.SUTD:
+    case ProjectScope.SUTD:
       return AclScope.evs2_sutd;
-    case Evs2Project.NTU:
+    case ProjectScope.NTU:
       return AclScope.evs2_ntu;
+    default:
+      return AclScope.self;
+  }
+}
+
+AclScope getAclSiteScope(SiteScope? siteScope) {
+  switch (siteScope) {
+    case SiteScope.NUS_PGPR:
+      return AclScope.site_nus_pgpr;
+    case SiteScope.NUS_YNC:
+      return AclScope.site_nus_ync;
+    case SiteScope.NUS_RVRC:
+      return AclScope.site_nus_rvrc;
+    case SiteScope.SUTD_CAMPUS:
+      return AclScope.site_sutd_campus;
+    case SiteScope.NTU_MR:
+      return AclScope.site_ntu_mr;
     default:
       return AclScope.self;
   }

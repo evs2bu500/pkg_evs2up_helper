@@ -3,9 +3,17 @@ import 'mdl_acl_target_ops.dart';
 enum AclScope {
   self,
   global,
+
+  sg_all,
   evs2_nus,
   evs2_sutd,
   evs2_ntu,
+
+  site_nus_pgpr,
+  site_nus_ync,
+  site_nus_rvrc,
+  site_sutd_campus,
+  site_ntu_mr,
 }
 
 enum AclTarget {

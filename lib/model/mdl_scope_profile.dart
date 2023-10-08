@@ -1,22 +1,25 @@
 import 'package:evs2up_helper/model/mdl_payment_mode_setting.dart';
 
-enum ProjectScope {
-  sg_global,
-  evs2_nus,
-  evs2_sutd,
-  evs2_ntu,
-}
+import '../evs2up_helper.dart';
 
-enum SiteScope {
-  nus_pgpr,
-  nus_ync,
-  nus_rvrc,
-  sutd_campus,
-  ntu_mr,
-}
+// enum ProjectScope {
+//   sg_global,
+//   evs2_nus,
+//   evs2_sutd,
+//   evs2_ntu,
+// }
+
+// enum SiteScope {
+//   nus_pgpr,
+//   nus_ync,
+//   nus_rvrc,
+//   sutd_campus,
+//   ntu_mr,
+// }
 
 class ScopeProfile {
   ProjectScope projectScope;
+  List<SiteScope>? projectSites = [];
   int timezone;
   String? currency = 'SGD';
   Function? validateEntityName;
@@ -30,6 +33,7 @@ class ScopeProfile {
     this.validateEntityName,
     this.allowCustomAmount,
     this.paymentSetting,
+    this.projectSites,
   });
 
   factory ScopeProfile.fromJson(Map<String, dynamic> json) {
@@ -47,6 +51,7 @@ class ScopeProfile {
       validateEntityName: json['validate_entity_name'],
       allowCustomAmount: json['allow_custom_amount'],
       paymentSetting: paymentSetting,
+      projectSites: json['project_sites'],
     );
   }
 

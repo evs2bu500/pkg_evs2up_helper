@@ -64,13 +64,13 @@ const alarmService = 'Alarm Service';
 
 class AppModel extends ChangeNotifier {
   String? subDomain;
-  ScopeProfile scopeProfile;
+  ScopeProfile portalScopeProfile;
   String? appName;
   String? appVer;
 
   AppModel({
     required this.subDomain,
-    required this.scopeProfile,
+    required this.portalScopeProfile,
     this.appName,
     this.appVer,
   });
