@@ -1,13 +1,29 @@
 import '../evs2up_helper.dart';
 
-enum ProjectScope { NUS, SUTD, NTU, SMU, SIT, SUSS, NONE, SG_ALL }
+enum ProjectScope {
+  EVS2_NUS,
+  EVS2_SUTD,
+  EVS2_NTU,
+  EVS2_SMU,
+  EVS2_SIT,
+  EVS2_SUSS,
+  NONE,
+  SG_ALL,
+}
 
-enum SiteScope { NUS_PGPR, NUS_YNC, NUS_RVRC, SUTD_CAMPUS, NTU_MR, SG_ALL }
+enum SiteScope {
+  NUS_PGPR,
+  NUS_YNC,
+  NUS_RVRC,
+  SUTD_CAMPUS,
+  NTU_MR,
+  SG_ALL,
+}
 
 const evs2Projects = [
-  ProjectScope.NUS,
-  ProjectScope.SUTD,
-  ProjectScope.NTU,
+  ProjectScope.EVS2_NUS,
+  ProjectScope.EVS2_SUTD,
+  ProjectScope.EVS2_NTU,
   ProjectScope.SG_ALL,
   ProjectScope.NONE,
 ];
@@ -69,24 +85,24 @@ String getProjectScopeStrFromScopeStr(String scopeStr) {
   return 'none';
 }
 
-String getProjectString(ProjectScope project) {
+String getProjectDisplayString(ProjectScope project) {
   switch (project) {
-    case ProjectScope.NUS:
-      return 'evs2_nus';
-    case ProjectScope.NTU:
-      return 'evs2_ntu';
-    case ProjectScope.SUTD:
-      return 'evs2_sutd';
-    case ProjectScope.SMU:
-      return 'evs2_smu';
-    case ProjectScope.SIT:
-      return 'evs2_sit';
-    case ProjectScope.SUSS:
-      return 'evs2_suss';
+    case ProjectScope.EVS2_NUS:
+      return 'NUS';
+    case ProjectScope.EVS2_NTU:
+      return 'NTU';
+    case ProjectScope.EVS2_SUTD:
+      return 'SUTD';
+    case ProjectScope.EVS2_SMU:
+      return 'SMU';
+    case ProjectScope.EVS2_SIT:
+      return 'SIT';
+    case ProjectScope.EVS2_SUSS:
+      return 'SUSS';
     case ProjectScope.NONE:
       return 'none';
     case ProjectScope.SG_ALL:
-      return 'global';
+      return 'all';
   }
 }
 
@@ -94,11 +110,11 @@ AclScope getAclProjectScope(ProjectScope? evs2project) {
   switch (evs2project) {
     case ProjectScope.SG_ALL:
       return AclScope.global;
-    case ProjectScope.NUS:
+    case ProjectScope.EVS2_NUS:
       return AclScope.evs2_nus;
-    case ProjectScope.SUTD:
+    case ProjectScope.EVS2_SUTD:
       return AclScope.evs2_sutd;
-    case ProjectScope.NTU:
+    case ProjectScope.EVS2_NTU:
       return AclScope.evs2_ntu;
     default:
       return AclScope.self;
