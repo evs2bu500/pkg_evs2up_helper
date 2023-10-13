@@ -111,11 +111,11 @@ AclScope getAclProjectScope(ProjectScope? evs2project) {
     case ProjectScope.SG_ALL:
       return AclScope.global;
     case ProjectScope.EVS2_NUS:
-      return AclScope.evs2_nus;
+      return AclScope.project_evs2_nus;
     case ProjectScope.EVS2_SUTD:
-      return AclScope.evs2_sutd;
+      return AclScope.project_evs2_sutd;
     case ProjectScope.EVS2_NTU:
-      return AclScope.evs2_ntu;
+      return AclScope.project_evs2_ntu;
     default:
       return AclScope.self;
   }

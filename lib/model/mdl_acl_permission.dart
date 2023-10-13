@@ -5,9 +5,9 @@ enum AclScope {
   global,
 
   sg_all,
-  evs2_nus,
-  evs2_sutd,
-  evs2_ntu,
+  project_evs2_nus,
+  project_evs2_sutd,
+  project_evs2_ntu,
 
   site_nus_pgpr,
   site_nus_ync,
