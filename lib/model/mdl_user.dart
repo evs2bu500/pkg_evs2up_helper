@@ -20,6 +20,7 @@ enum UserKey {
   fcmRegToken,
   address,
   projectScope,
+  siteScope,
 }
 
 enum AclRole {
@@ -70,9 +71,9 @@ enum DestPortal {
 
 enum PushType {
   none,
-  fcm,
-  apns,
-  longPolling,
+  fcm, //firebase cloud messaging
+  apns, //apple push notification service
+  longPolling, //long polling
 }
 
 class User {
@@ -97,6 +98,7 @@ class User {
   String? scopeStr;
   Map<String, String>? stripeEpts;
   String? destPortal;
+  List<String>? scopes;
 
   User({
     this.id,
@@ -119,6 +121,7 @@ class User {
     this.scopeStr,
     this.stripeEpts,
     this.destPortal,
+    this.scopes,
   });
 
   factory User.fromJson(Map<String, dynamic> respJson) {
@@ -167,6 +170,12 @@ class User {
         ...userJson['permissions'].map((e) => e.toString())
       ];
 
+      //split scopeStr into scopes list with "," as delimiter
+      List<String> scopes = [];
+      if (userJson['scope_str'] != null && userJson['scope_str'] != '') {
+        scopes = [...userJson['scope_str'].split(',')];
+      }
+
       return User(
         id: userJson['id'],
         username: userJson['username'],
@@ -185,6 +194,7 @@ class User {
         fcmRegToken: userJson['fcm_reg_token'] ?? '',
         scopeStr: userJson['scope_str'] ?? '',
         destPortal: userJson['dest_portal'] ?? '',
+        scopes: scopes,
       );
     } catch (e) {
       if (kDebugMode) {

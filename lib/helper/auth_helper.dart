@@ -14,6 +14,8 @@ String? errorFilter(String? err, comm_tasks task) {
     _err = 'Invalid username or password';
   } else if (err.contains('portal')) {
     _err = 'Incorrect portal';
+  } else if (err.contains('scope')) {
+    _err = 'Error getting scope info';
   } else {
     _err = 'Service Error';
   }

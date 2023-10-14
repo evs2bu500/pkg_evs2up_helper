@@ -1,4 +1,5 @@
 import 'package:evs2up_helper/model/mdl_payment_mode_setting.dart';
+import 'package:flutter/foundation.dart';
 
 import '../evs2up_helper.dart';
 
@@ -17,7 +18,7 @@ import '../evs2up_helper.dart';
 //   ntu_mr,
 // }
 
-class ScopeProfile {
+class ScopeProfile extends ChangeNotifier {
   ProjectScope projectScope;
   List<SiteScope>? projectSites = [];
   int timezone;
@@ -25,6 +26,35 @@ class ScopeProfile {
   Function? validateEntityName;
   bool? allowCustomAmount = false;
   List<PaymentModeSetting>? paymentSetting = [];
+
+  ProjectScope? _selectedProjectScope;
+  SiteScope? _selectedSiteScope;
+  void setScope(ProjectScope? projectScope, SiteScope? siteScope) {
+    _selectedProjectScope = projectScope;
+    _selectedSiteScope = siteScope;
+    notifyListeners();
+  }
+
+  ProjectScope? get selectedProjectScope => _selectedProjectScope;
+  set selectedProjectScope(ProjectScope? projectScope) {
+    _selectedProjectScope = projectScope;
+    notifyListeners();
+  }
+
+  SiteScope? get selectedSiteScope => _selectedSiteScope;
+  set selectedSiteScope(SiteScope? siteScope) {
+    _selectedSiteScope = siteScope;
+    notifyListeners();
+  }
+  // ProjectScope get _projectScope => selectedSiteScope;
+
+  String getEffectiveScopeStr() {
+    if (_selectedSiteScope == null) {
+      return _selectedProjectScope!.name;
+    } else {
+      return _selectedProjectScope!.name;
+    }
+  }
 
   ScopeProfile({
     required this.projectScope,
