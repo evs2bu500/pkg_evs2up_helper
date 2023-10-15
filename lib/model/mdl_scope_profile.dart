@@ -18,7 +18,7 @@ import '../evs2up_helper.dart';
 //   ntu_mr,
 // }
 
-class ScopeProfile extends ChangeNotifier {
+class ScopeProfile /*extends ChangeNotifier*/ {
   ProjectScope projectScope;
   List<SiteScope>? projectSites = [];
   int timezone;
@@ -32,25 +32,24 @@ class ScopeProfile extends ChangeNotifier {
   void setScope(ProjectScope? projectScope, SiteScope? siteScope) {
     _selectedProjectScope = projectScope;
     _selectedSiteScope = siteScope;
-    notifyListeners();
+    // notifyListeners();
   }
 
   ProjectScope? get selectedProjectScope => _selectedProjectScope;
-  set selectedProjectScope(ProjectScope? projectScope) {
-    _selectedProjectScope = projectScope;
-    notifyListeners();
-  }
+  // set selectedProjectScope(ProjectScope? projectScope) {
+  //   _selectedProjectScope = projectScope;
+  //   notifyListeners();
+  // }
 
   SiteScope? get selectedSiteScope => _selectedSiteScope;
-  set selectedSiteScope(SiteScope? siteScope) {
-    _selectedSiteScope = siteScope;
-    notifyListeners();
-  }
-  // ProjectScope get _projectScope => selectedSiteScope;
+  // set selectedSiteScope(SiteScope? siteScope) {
+  //   _selectedSiteScope = siteScope;
+  //   notifyListeners();
+  // }
 
   String getEffectiveScopeStr() {
-    if (_selectedSiteScope == null) {
-      return _selectedProjectScope!.name;
+    if (_selectedSiteScope != null) {
+      return _selectedSiteScope!.name;
     } else {
       return _selectedProjectScope!.name;
     }

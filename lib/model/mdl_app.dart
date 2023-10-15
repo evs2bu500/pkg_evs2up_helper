@@ -64,26 +64,26 @@ const alarmService = 'Alarm Service';
 
 class AppModel extends ChangeNotifier {
   String? subDomain;
-  ScopeProfile? _portalScopeProfile;
+  ScopeProfile portalScopeProfile;
   String? appName;
   String? appVer;
   // int aa = 0;
 
   AppModel({
     required this.subDomain,
-    portalScopeProfile,
+    required this.portalScopeProfile,
     this.appName,
     this.appVer,
   }) {
     // print('AppModel constructor');
-    _portalScopeProfile = portalScopeProfile;
+    // _portalScopeProfile = portalScopeProfile;
   }
 
-  ScopeProfile? get portalScopeProfile => _portalScopeProfile;
-  set scopeProfile(ScopeProfile portalScopeProfile) {
-    _portalScopeProfile = portalScopeProfile;
-    notifyListeners();
-  }
+  // ScopeProfile? get portalScopeProfile => _portalScopeProfile;
+  // set scopeProfile(ScopeProfile portalScopeProfile) {
+  //   _portalScopeProfile = portalScopeProfile;
+  //   notifyListeners();
+  // }
 
   // set ax(int a) {
   //   aa = a;
