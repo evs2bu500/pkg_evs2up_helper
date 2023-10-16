@@ -170,10 +170,11 @@ class User {
         ...userJson['permissions'].map((e) => e.toString())
       ];
 
-      //split scopeStr into scopes list with "," as delimiter
+      //split scopeStr into scopes list with ";" as delimiter
+      String scopeStrDelimiter = ';';
       List<String> scopes = [];
       if (userJson['scope_str'] != null && userJson['scope_str'] != '') {
-        scopes = [...userJson['scope_str'].split(',')];
+        scopes = [...userJson['scope_str'].split(scopeStrDelimiter)];
       }
 
       return User(

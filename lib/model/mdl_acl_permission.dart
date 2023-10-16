@@ -36,12 +36,25 @@ enum AclTarget {
   evs2_acl_role_p_permission,
   evs2user_p_role,
   evs2user_p_profile,
+  evs2user_p_password,
+  evs2user_p_credit_balance,
   meter_p_reading,
   meter_p_info,
   meter_p_credit_balance,
   meter_p_month_to_date_usage,
   meter_p_bypass_policy,
   meter_p_conc,
+
+  evs2_ops_dashboard_p_topup_history,
+  evs2_ops_dashboard_p_top_kwh_rank,
+  evs2_ops_dashboard_p_recent_total_topup,
+  evs2_ops_dashboard_p_recent_total_kwh,
+  evs2_ops_dashboard_p_recent_total_comm_data,
+  evs2_ops_dashboard_p_active_count,
+  evs2_ops_dashboard_p_mms_stat,
+  evs2_ops_dashboard_p_kwh_history,
+  evs2_ops_dashboard_p_comm_stat,
+  evs2_ops_dashboard_p_active_count_history,
 }
 
 enum AclOperation {
