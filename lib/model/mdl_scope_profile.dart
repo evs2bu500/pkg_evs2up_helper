@@ -55,6 +55,19 @@ class ScopeProfile /*extends ChangeNotifier*/ {
     }
   }
 
+  AclScope getEffectiveScope() {
+    if (_selectedSiteScope != null) {
+      return AclScope.values
+          .byName('site_${selectedSiteScope!.name.toLowerCase()}');
+    } else {
+      if (_selectedProjectScope == ProjectScope.SG_ALL) {
+        return AclScope.values.byName('sg_all');
+      }
+      return AclScope.values
+          .byName('project_${selectedProjectScope!.name.toLowerCase()}');
+    }
+  }
+
   ScopeProfile({
     required this.projectScope,
     required this.timezone,

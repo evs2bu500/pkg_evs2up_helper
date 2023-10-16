@@ -17,6 +17,7 @@ enum AclScope {
 }
 
 enum AclTarget {
+  //acl v1
   meter,
   meter_info,
   meter_rls,
@@ -34,17 +35,27 @@ enum AclTarget {
   meter_consumer_tariff_history,
   evs2_acl_role_p_profile,
   evs2_acl_role_p_permission,
-  evs2user_p_role,
-  evs2user_p_profile,
-  evs2user_p_password,
-  evs2user_p_credit_balance,
+
+  //acl v2
+  meter_p_entity,
   meter_p_reading,
   meter_p_info,
+  meter_p_rls,
   meter_p_credit_balance,
   meter_p_month_to_date_usage,
   meter_p_bypass_policy,
   meter_p_conc,
+  meter_p_kiv,
 
+  evs2user_p_entity,
+  evs2user_p_role,
+  evs2user_p_profile,
+  evs2user_p_password,
+  evs2user_p_credit_balance,
+  evs2user_p_topup_history_3months,
+  evs2user_p_transaction_history_3months,
+
+  // evs2_acl_role_p_entity,
   evs2_ops_dashboard_p_topup_history,
   evs2_ops_dashboard_p_top_kwh_rank,
   evs2_ops_dashboard_p_recent_total_topup,

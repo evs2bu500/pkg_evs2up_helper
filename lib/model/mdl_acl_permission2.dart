@@ -26,7 +26,8 @@ class Permission2 {
     List<String> permissionList = permissionStr.split(':');
     return Permission2(
       scope: AclScope.values.byName(permissionList[0]),
-      target: AclTarget.values.byName(permissionList[1]),
+      target:
+          AclTarget.values.byName(permissionList[1].replaceFirst('.', '_p_')),
       operation: AclOperation.values.byName(permissionList[2]),
     );
   }

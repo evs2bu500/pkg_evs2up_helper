@@ -3,6 +3,7 @@
 import 'package:flutter/foundation.dart';
 
 import 'mdl_acl_permission.dart';
+import 'mdl_acl_permission2.dart';
 
 enum UserKey {
   none,
@@ -35,7 +36,7 @@ enum AclRole {
   EVS2_Reserved_2002,
   EVS2_Reserved_2003,
   EVS2_Reserved_2004,
-  EVS2_Reserved_2005,
+  EVS2_Admin_Root,
   EVS2_Reserved_2006,
   EVS2_Super_Admin,
   EVS2_Reserved_2008,
@@ -43,7 +44,7 @@ enum AclRole {
   EVS2_Reserved_2010,
   EVS2_Admin,
   EVS2_Reserved_2012,
-  EVS2_Reserved_2013,
+  EVS2_Ops_PA,
   EVS2_Reserved_2014,
   EVS2_Sub_Admin,
   EVS2_Reserved_2016,
@@ -92,6 +93,7 @@ class User {
   int maxRank = 0;
   List<String>? roles;
   List<String>? permissions;
+  List<Permission2>? permission2s;
   String? address;
   String? fcmRegToken;
   PushType? pushType;
@@ -115,6 +117,7 @@ class User {
     this.maxRank = 0,
     this.roles,
     this.permissions,
+    this.permission2s,
     this.address,
     this.fcmRegToken,
     this.pushType,
@@ -170,6 +173,11 @@ class User {
         ...userJson['permissions'].map((e) => e.toString())
       ];
 
+      List<Permission2> permission2s = [];
+      for (String permStr in permissions) {
+        permission2s.add(Permission2.fromString(permStr));
+      }
+
       //split scopeStr into scopes list with ";" as delimiter
       String scopeStrDelimiter = ';';
       List<String> scopes = [];
@@ -196,6 +204,7 @@ class User {
         scopeStr: userJson['scope_str'] ?? '',
         destPortal: userJson['dest_portal'] ?? '',
         scopes: scopes,
+        permission2s: permission2s,
       );
     } catch (e) {
       if (kDebugMode) {
@@ -288,6 +297,34 @@ class User {
         .contains('${scope.name}:${target.name}:${op.name}'.toLowerCase());
   }
 
+  bool hasPermmision2(AclScope scope, AclTarget target, AclOperation op) {
+    if (permission2s == null) {
+      return false;
+    }
+    // return permission2s!.contains(Permission2.fromString('$scope:${target.name}:$op'));
+    return permission2s!
+        .any((element) => element.scope == scope && element.target == target);
+  }
+
+  bool showFullDashboard() {
+    return isFullOpsAndUp();
+  }
+
+  bool isSubAdminAndUp() {
+    return isAdminAndUp() || hasRole2(AclRole.EVS2_Sub_Admin);
+  }
+
+  bool isFullOpsAndUp() {
+    return isSubAdminAndUp() || hasRole2(AclRole.EVS2_Ops_PA);
+  }
+
+  bool isAdminAndUp() {
+    return hasRole2(AclRole.EVS2_Owner) ||
+        hasRole2(AclRole.Administrator) ||
+        hasRole2(AclRole.EVS2_Admin_Root) ||
+        hasRole2(AclRole.EVS2_Super_Admin) ||
+        hasRole2(AclRole.EVS2_Admin);
+  }
   // bool hasRole(AclRole role) {
   //   return rolePermMap!.containsKey(role.name);
   // }
@@ -297,13 +334,6 @@ class User {
     bool hasRole = roles!.any((element) => element.contains(role.name));
     // print('hasRole2: $hasRole - ${role.name}');
     return hasRole;
-  }
-
-  bool isAdminAndUp() {
-    return hasRole2(AclRole.EVS2_Owner) ||
-        hasRole2(AclRole.Administrator) ||
-        hasRole2(AclRole.EVS2_Super_Admin) ||
-        hasRole2(AclRole.EVS2_Admin);
   }
 
   bool useOpsDashboard() {
