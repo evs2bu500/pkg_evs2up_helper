@@ -1,5 +1,6 @@
 // import 'package:flutter/material.dart';
 
+import 'package:evs2up_helper/evs2up_helper.dart';
 import 'package:flutter/foundation.dart';
 
 import 'mdl_acl_permission.dart';
@@ -101,6 +102,8 @@ class User {
   Map<String, String>? stripeEpts;
   String? destPortal;
   List<String>? scopes;
+  List<ProjectScope>? projectScopes;
+  List<SiteScope>? siteScopes;
 
   User({
     this.id,
@@ -125,6 +128,8 @@ class User {
     this.stripeEpts,
     this.destPortal,
     this.scopes,
+    this.projectScopes,
+    this.siteScopes,
   });
 
   factory User.fromJson(Map<String, dynamic> respJson) {
