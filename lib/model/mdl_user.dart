@@ -52,7 +52,7 @@ enum AclRole {
   EVS2_Reserved_2017,
   EVS2_Ops1,
   EVS2_Ops2,
-  EVS2_Ops3,
+  EVS2_Ops_Site_NTU_MR,
   EVS2_Ops_Basic,
   Sl_NUS_Project_Host,
   EVS2_Reserved_2023,
