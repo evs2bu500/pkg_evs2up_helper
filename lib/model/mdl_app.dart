@@ -37,6 +37,7 @@ const meterService = 'Meter Service';
 const meterManager = 'Meter Manager';
 const transactionService = 'Transaction Service';
 const transactionHistory = 'Transaction History';
+const topupHistory = 'Topup History';
 const tariffHistory = 'Tariff History';
 const creditService = 'Credit Service';
 const topupCredit = 'Topup Credit';
