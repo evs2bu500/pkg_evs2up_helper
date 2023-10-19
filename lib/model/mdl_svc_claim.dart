@@ -1,5 +1,6 @@
 class SvcClaim {
   String? username = '';
+  int? userId = 0;
   String? svcName = '';
   String? endpoint = '';
   String? scope = '';
@@ -8,6 +9,7 @@ class SvcClaim {
 
   SvcClaim(
       {this.username,
+      this.userId,
       this.svcName,
       this.endpoint,
       this.scope,
@@ -17,6 +19,7 @@ class SvcClaim {
   factory SvcClaim.fromJson(Map<String, dynamic> json) {
     return SvcClaim(
       username: json['username'],
+      userId: json['user_id'],
       svcName: json['svc_name'],
       endpoint: json['endpoint'],
       scope: json['scope'],
@@ -28,6 +31,7 @@ class SvcClaim {
   Map<String, dynamic> toJson() {
     return {
       'username': username,
+      'user_id': userId,
       'svcName': svcName,
       'endpoint': endpoint,
       'scope': scope,
