@@ -3,6 +3,7 @@
 import 'package:evs2up_helper/evs2up_helper.dart';
 import 'package:flutter/foundation.dart';
 
+import '../enum/enum_acl.dart';
 import 'mdl_acl_permission.dart';
 import 'mdl_acl_permission2.dart';
 

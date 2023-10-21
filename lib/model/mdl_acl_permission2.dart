@@ -1,5 +1,7 @@
 import 'package:evs2up_helper/evs2up_helper.dart';
 
+import '../enum/enum_acl.dart';
+
 class Permission2 {
   AclScope scope;
   AclTarget target;

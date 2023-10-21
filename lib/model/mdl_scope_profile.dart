@@ -1,6 +1,4 @@
-import 'package:evs2up_helper/model/mdl_payment_mode_setting.dart';
-import 'package:flutter/foundation.dart';
-
+import '../enum/enum_acl.dart';
 import '../evs2up_helper.dart';
 
 // enum ProjectScope {
