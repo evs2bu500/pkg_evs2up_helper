@@ -46,7 +46,9 @@ enum AclTarget {
   meter_p_kiv,
   meter_p_tariff,
   meter_p_reading_daily,
+  meter_p_daily_reading_history_full,
   meter_p_last_reading,
+  meter_p_comm_status,
 
   evs2user_p_entity,
   evs2user_p_role,

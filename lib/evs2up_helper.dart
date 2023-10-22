@@ -4,6 +4,7 @@ export 'enum/enum_acl.dart';
 
 export 'helper/auth_helper.dart';
 export 'helper/project_helper.dart';
+export 'helper/acl_helper.dart';
 
 export 'model/mdl_acl_permission.dart';
 export 'model/mdl_acl_permission2.dart';

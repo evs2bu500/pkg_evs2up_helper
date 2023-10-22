@@ -3,10 +3,6 @@
 import 'package:evs2up_helper/evs2up_helper.dart';
 import 'package:flutter/foundation.dart';
 
-import '../enum/enum_acl.dart';
-import 'mdl_acl_permission.dart';
-import 'mdl_acl_permission2.dart';
-
 enum UserKey {
   none,
   fullname,
@@ -92,7 +88,7 @@ class User {
   bool? prefDarkMode = false;
   bool? isLoggedin = false;
   Map<String, Permission>? rolePermMap;
-  int maxRank = 0;
+  int? maxRank = 0;
   List<String>? roles;
   List<String>? permissions;
   List<Permission2>? permission2s;
@@ -190,7 +186,6 @@ class User {
       if (userJson['scope_str'] != null && userJson['scope_str'] != '') {
         scopes = [...userJson['scope_str'].split(scopeStrDelimiter)];
       }
-
       return User(
         id: userJson['id'],
         username: userJson['username'],
@@ -214,7 +209,7 @@ class User {
       );
     } catch (e) {
       if (kDebugMode) {
-        print(e);
+        print({'exception in User.fromJson2:$e'});
       }
       return User();
     }
@@ -243,17 +238,17 @@ class User {
   Map<String, dynamic> toJson2() {
     return {
       'id': id,
-      'username': username,
-      'email': email,
+      'username': username ?? '',
+      'email': email ?? '',
       'email_verified': emailVerified ?? false,
-      'password': password,
+      'password': password ?? '',
       'fullname': fullName ?? '',
       'contact_number': phone ?? '',
       'roles': roles ?? [],
-      'max_rank': maxRank,
-      'enabled': enabled,
+      'max_rank': maxRank ?? 0,
+      'enabled': enabled ?? false,
       // 'pref_dark_mode': prefDarkMode,
-      'role_perm_profile': rolePermMap,
+      'role_perm_profile': rolePermMap ?? {},
       'address': address ?? '',
       'fcm_reg_token': fcmRegToken ?? '',
       'scope_str': scopeStr ?? '',
