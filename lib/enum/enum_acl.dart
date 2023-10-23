@@ -58,7 +58,9 @@ enum AclTarget {
   evs2user_p_topup_history_3months,
   evs2user_p_transaction_history_3months,
 
-  // evs2_acl_role_p_entity,
+  evs2_acl_role_p_entity,
+  evs2_acl_scope_p_entity,
+
   evs2_ops_dashboard_p_topup_history,
   evs2_ops_dashboard_p_top_kwh_rank,
   evs2_ops_dashboard_p_recent_total_topup,
