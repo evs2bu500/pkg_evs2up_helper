@@ -7,11 +7,19 @@ enum AclScope {
   project_evs2_sutd,
   project_evs2_ntu,
 
+  project_ems_smrt,
+
   site_nus_pgpr,
   site_nus_ync,
   site_nus_rvrc,
   site_sutd_campus,
   site_ntu_mr,
+
+  site_smrt_clementi,
+  site_smrt_dover,
+  site_smrt_buona_vista,
+  site_smrt_commonwealth,
+  site_smrt_queenstown,
 }
 
 enum AclTarget {

@@ -1,4 +1,3 @@
-import '../enum/enum_acl.dart';
 import '../evs2up_helper.dart';
 
 enum ProjectScope {
@@ -11,6 +10,7 @@ enum ProjectScope {
   NONE,
   SG_ALL,
   GLOBAL,
+  EMS_SMRT,
 }
 
 enum SiteScope {
@@ -22,6 +22,11 @@ enum SiteScope {
   NONE,
   SG_ALL,
   GLOBAL,
+  SMRT_Clementi,
+  SMRT_Dover,
+  SMRT_Buona_Vista,
+  SMRT_Commonwealth,
+  SMRT_Queenstown,
 }
 
 const evs2Projects = [
@@ -31,6 +36,11 @@ const evs2Projects = [
   ProjectScope.SG_ALL,
   ProjectScope.NONE,
 ];
+const emsProjects = [
+  ProjectScope.EMS_SMRT,
+  ProjectScope.NONE,
+];
+
 const evs2Sites = [
   SiteScope.NUS_PGPR,
   SiteScope.NUS_YNC,
@@ -41,28 +51,15 @@ const evs2Sites = [
   SiteScope.NONE,
 ];
 
-// enum ProjectScope {
-//   sg_global,
-//   evs2_nus,
-//   evs2_sutd,
-//   evs2_ntu,
-// }
-
-// enum SiteScope {
-//   nus_pgpr,
-//   nus_ync,
-//   nus_rvrc,
-//   sutd_campus,
-//   ntu_mr,
-// }
-
-// const List<ProjectScope> evs2Projects = [
-//   ProjectScope.NUS,
-//   ProjectScope.SUTD,
-//   ProjectScope.NTU,
-//   ProjectScope.ALL,
-//   ProjectScope.NONE,
-// ];
+const emsSites = [
+  SiteScope.SMRT_Clementi,
+  SiteScope.SMRT_Dover,
+  SiteScope.SMRT_Buona_Vista,
+  SiteScope.SMRT_Commonwealth,
+  SiteScope.SMRT_Queenstown,
+  SiteScope.SG_ALL,
+  SiteScope.NONE,
+];
 
 ScopeProfile? getActivePortalScopeProfile(ProjectScope activePortalProjectScope,
     List<Map<String, dynamic>> scopeProfiles) {
@@ -172,6 +169,11 @@ ProjectScope getProjectScopeFromStr(String scopeStr) {
       .contains(ProjectScope.EVS2_SUSS.name.toLowerCase())) {
     return ProjectScope.EVS2_SUSS;
   }
+  if (scopeStr
+      .toLowerCase()
+      .contains(ProjectScope.EMS_SMRT.name.toLowerCase())) {
+    return ProjectScope.EMS_SMRT;
+  }
   return ProjectScope.NONE;
 }
 
@@ -198,6 +200,31 @@ SiteScope getSiteScopeFromStr(String scopeStr) {
   }
   if (scopeStr.toLowerCase().contains(SiteScope.NTU_MR.name.toLowerCase())) {
     return SiteScope.NTU_MR;
+  }
+  if (scopeStr
+      .toLowerCase()
+      .contains(SiteScope.SMRT_Clementi.name.toLowerCase())) {
+    return SiteScope.SMRT_Clementi;
+  }
+  if (scopeStr
+      .toLowerCase()
+      .contains(SiteScope.SMRT_Dover.name.toLowerCase())) {
+    return SiteScope.SMRT_Dover;
+  }
+  if (scopeStr
+      .toLowerCase()
+      .contains(SiteScope.SMRT_Buona_Vista.name.toLowerCase())) {
+    return SiteScope.SMRT_Buona_Vista;
+  }
+  if (scopeStr
+      .toLowerCase()
+      .contains(SiteScope.SMRT_Commonwealth.name.toLowerCase())) {
+    return SiteScope.SMRT_Commonwealth;
+  }
+  if (scopeStr
+      .toLowerCase()
+      .contains(SiteScope.SMRT_Queenstown.name.toLowerCase())) {
+    return SiteScope.SMRT_Queenstown;
   }
   return SiteScope.NONE;
 }
@@ -246,6 +273,8 @@ String getProjectDisplayString(ProjectScope project) {
       return 'SG_ALL';
     case ProjectScope.GLOBAL:
       return 'GLOBAL';
+    case ProjectScope.EMS_SMRT:
+      return 'EMS_SMRT';
   }
 }
 
@@ -259,6 +288,9 @@ AclScope getAclProjectScope(ProjectScope? evs2project) {
       return AclScope.project_evs2_sutd;
     case ProjectScope.EVS2_NTU:
       return AclScope.project_evs2_ntu;
+    case ProjectScope.EMS_SMRT:
+      return AclScope.project_ems_smrt;
+
     default:
       return AclScope.self;
   }
@@ -276,6 +308,16 @@ AclScope getAclSiteScope(SiteScope? siteScope) {
       return AclScope.site_sutd_campus;
     case SiteScope.NTU_MR:
       return AclScope.site_ntu_mr;
+    case SiteScope.SMRT_Clementi:
+      return AclScope.site_smrt_clementi;
+    case SiteScope.SMRT_Dover:
+      return AclScope.site_smrt_dover;
+    case SiteScope.SMRT_Buona_Vista:
+      return AclScope.site_smrt_buona_vista;
+    case SiteScope.SMRT_Commonwealth:
+      return AclScope.site_smrt_commonwealth;
+    case SiteScope.SMRT_Queenstown:
+      return AclScope.site_smrt_queenstown;
     default:
       return AclScope.self;
   }

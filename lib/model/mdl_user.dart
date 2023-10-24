@@ -57,7 +57,7 @@ enum AclRole {
   EVS2_Basic_Meter_Consumer,
   EVS2_Reserved_2026,
   EVS2_Registered_User,
-  EVS2_Reserved_2028,
+  EMS_Ops_Site_SMRT_Buona_Vista,
   EVS2_Basic_User,
 }
 
@@ -65,6 +65,7 @@ enum DestPortal {
   evs2op,
   evs2cp,
   bmsup,
+  emsup,
   none,
 }
 
@@ -337,6 +338,23 @@ class User {
     return hasRole;
   }
 
+  bool hasRoleStr(List<String> roleStr) {
+    // roles is a list of [{name: EVS2_Admin, rank: 55}]
+    // bool hasRole = roles!.any((element) => element.contains(roleStr));
+    if (roles == null) return false;
+    bool hasRoleStr = false;
+    for (String role in roles!) {
+      for (String str in roleStr) {
+        if (!role.contains(str)) {
+          continue;
+        }
+        hasRoleStr = true;
+        break;
+      }
+    }
+    return hasRoleStr;
+  }
+
   bool useOpsDashboard() {
     return isAdminAndUp() || hasRole2(AclRole.EVS2_Ops_Basic);
   }
@@ -353,6 +371,8 @@ class User {
         return DestPortal.evs2cp;
       case 'bmsup':
         return DestPortal.bmsup;
+      case 'emsup':
+        return DestPortal.emsup;
       default:
         return DestPortal.none;
     }
