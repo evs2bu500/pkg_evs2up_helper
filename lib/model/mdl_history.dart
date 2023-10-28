@@ -7,7 +7,9 @@ enum Evs2HistoryType {
   top_kwh_consumption_by_building,
   // tariff,
   meter_tariff,
-  transaction_log
+  transaction_log,
+  meter_reading_3p,
+  meter_reading_3p_daily,
 }
 
 class Evs2HistoryModel {
