@@ -123,6 +123,8 @@ class MeterKwhHistory {
       dominantInterval: dominantInterval,
       duration: duration,
       maxVal: maxVal,
+      minVal: meterKwhHistoryMeta!.minVal,
+      minValNonZero: meterKwhHistoryMeta!.minValNonZero,
       avgVal: 0,
       total: 0,
       positiveCount: 0,
@@ -135,6 +137,8 @@ class MeterHistoryMeta {
   int duration = 0;
   double maxVal = 0;
   double avgVal = 0;
+  double minVal = 0;
+  double minValNonZero = 0;
   double total = 0;
   int positiveCount = 0;
   List<Map<String, String>>? estIntervals;
@@ -143,6 +147,8 @@ class MeterHistoryMeta {
       {required this.dominantInterval,
       required this.duration,
       required this.maxVal,
+      required this.minVal,
+      required this.minValNonZero,
       required this.avgVal,
       required this.total,
       required this.positiveCount,
@@ -153,6 +159,8 @@ class MeterHistoryMeta {
         dominantInterval: json['dominant_interval'],
         duration: json['duration'],
         maxVal: json['max_val'],
+        minVal: json['min_val'],
+        minValNonZero: json['min_val_non_zero'],
         avgVal: json['avg_val'],
         total: json['total'],
         positiveCount: json['positive_count'],
@@ -164,6 +172,8 @@ class MeterHistoryMeta {
       'dominant_interval': dominantInterval,
       'duration': duration,
       'max_val': maxVal,
+      'min_val': minVal,
+      'min_val_non_zero': minValNonZero,
       'avg_val': avgVal,
       'total': total,
       'positive_count': positiveCount,
