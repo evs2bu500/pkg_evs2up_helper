@@ -126,6 +126,7 @@ class MeterKwhHistory {
       minVal: meterKwhHistoryMeta!.minVal,
       minValNonZero: meterKwhHistoryMeta!.minValNonZero,
       avgVal: 0,
+      medianVal: 0,
       total: 0,
       positiveCount: 0,
     );
@@ -137,6 +138,7 @@ class MeterHistoryMeta {
   int duration = 0;
   double maxVal = 0;
   double avgVal = 0;
+  double medianVal = 0;
   double minVal = 0;
   double minValNonZero = 0;
   double total = 0;
@@ -150,6 +152,7 @@ class MeterHistoryMeta {
       required this.minVal,
       required this.minValNonZero,
       required this.avgVal,
+      required this.medianVal,
       required this.total,
       required this.positiveCount,
       this.estIntervals});
@@ -162,6 +165,7 @@ class MeterHistoryMeta {
         minVal: json['min_val'],
         minValNonZero: json['min_val_non_zero'],
         avgVal: json['avg_val'],
+        medianVal: json['median_val'],
         total: json['total'],
         positiveCount: json['positive_count'],
         estIntervals: json['est_intervals']);
@@ -175,6 +179,7 @@ class MeterHistoryMeta {
       'min_val': minVal,
       'min_val_non_zero': minValNonZero,
       'avg_val': avgVal,
+      'median_val': medianVal,
       'total': total,
       'positive_count': positiveCount,
       'est_intervals': estIntervals
