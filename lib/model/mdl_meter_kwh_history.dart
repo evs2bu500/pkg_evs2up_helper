@@ -123,8 +123,10 @@ class MeterKwhHistory {
       dominantInterval: dominantInterval,
       duration: duration,
       maxVal: maxVal,
+      maxValDt: meterKwhHistoryMeta!.maxValDt,
       minVal: meterKwhHistoryMeta!.minVal,
       minValNonZero: meterKwhHistoryMeta!.minValNonZero,
+      minValNonZeroDt: meterKwhHistoryMeta!.minValNonZeroDt,
       avgVal: 0,
       medianVal: 0,
       total: 0,
@@ -137,10 +139,12 @@ class MeterHistoryMeta {
   int dominantInterval = 0;
   int duration = 0;
   double maxVal = 0;
+  DateTime? maxValDt;
   double avgVal = 0;
   double medianVal = 0;
   double minVal = 0;
   double minValNonZero = 0;
+  DateTime? minValNonZeroDt;
   double total = 0;
   int positiveCount = 0;
   List<Map<String, String>>? estIntervals;
@@ -149,8 +153,10 @@ class MeterHistoryMeta {
       {required this.dominantInterval,
       required this.duration,
       required this.maxVal,
+      required this.maxValDt,
       required this.minVal,
       required this.minValNonZero,
+      required this.minValNonZeroDt,
       required this.avgVal,
       required this.medianVal,
       required this.total,
@@ -158,12 +164,22 @@ class MeterHistoryMeta {
       this.estIntervals});
 
   factory MeterHistoryMeta.fromJson(Map<String, dynamic> json) {
+    DateTime? maxValDt;
+    if (json['max_val_dt'] != null) {
+      maxValDt = DateTime.parse(json['max_val_dt']);
+    }
+    DateTime? minValNonZeroDt;
+    if (json['min_val_non_zero_dt'] != null) {
+      minValNonZeroDt = DateTime.parse(json['min_val_non_zero_dt']);
+    }
     return MeterHistoryMeta(
         dominantInterval: json['dominant_interval'],
         duration: json['duration'],
         maxVal: json['max_val'],
+        maxValDt: maxValDt,
         minVal: json['min_val'],
         minValNonZero: json['min_val_non_zero'],
+        minValNonZeroDt: minValNonZeroDt,
         avgVal: json['avg_val'],
         medianVal: json['median_val'],
         total: json['total'],
@@ -176,8 +192,10 @@ class MeterHistoryMeta {
       'dominant_interval': dominantInterval,
       'duration': duration,
       'max_val': maxVal,
+      'max_val_dt': maxValDt,
       'min_val': minVal,
       'min_val_non_zero': minValNonZero,
+      'min_val_non_zero_dt': minValNonZeroDt,
       'avg_val': avgVal,
       'median_val': medianVal,
       'total': total,
