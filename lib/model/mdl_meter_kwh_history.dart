@@ -175,16 +175,16 @@ class MeterHistoryMeta {
     return MeterHistoryMeta(
         dominantInterval: json['dominant_interval'],
         duration: json['duration'],
-        maxVal: json['max_val'],
+        maxVal: json['max_val'] ?? -1,
         maxValDt: maxValDt,
-        minVal: json['min_val'],
-        minValNonZero: json['min_val_non_zero'],
+        minVal: json['min_val'] ?? -1,
+        minValNonZero: json['min_val_non_zero'] ?? -1,
         minValNonZeroDt: minValNonZeroDt,
-        avgVal: json['avg_val'],
-        medianVal: json['median_val'],
-        total: json['total'],
+        avgVal: json['avg_val'] ?? -1,
+        medianVal: json['median_val'] ?? -1,
+        total: json['total'] ?? -1,
         positiveCount: json['positive_count'],
-        estIntervals: json['est_intervals']);
+        estIntervals: json['est_intervals'] ?? []);
   }
 
   Map<String, dynamic> toJson() {
