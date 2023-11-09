@@ -1,3 +1,9 @@
+enum ItemType {
+  meter,
+  meter3p,
+  sensor,
+}
+
 enum ItemIdType {
   id,
   name,

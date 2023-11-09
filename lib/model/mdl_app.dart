@@ -11,6 +11,7 @@ enum PortalPage {
   login,
   meterKiv,
   meterService,
+  sensorService,
   transactionService,
   creditService,
   projectService,
@@ -34,6 +35,8 @@ const listPermissions = 'List Permissions';
 const createNewAccount = 'Create New Account';
 const configACL = 'Configure ACL';
 const meterService = 'Meter Service';
+const sensorManager = 'Sensor Manager';
+const sensorService = 'Sensor Service';
 const meterManager = 'Meter Manager';
 const transactionService = 'Transaction Service';
 const transactionHistory = 'Transaction History';
@@ -45,6 +48,7 @@ const adjCredit = 'Adjust Credit';
 const creditOps = 'Credit Ops';
 const batchCrditOps = 'Batch Credit Ops';
 const meterInfo = 'Meter Info';
+const sensorInfo = 'Sensor Info';
 const listSearchMeter = 'List/Search Meter';
 const meterCommissioning = 'Commissioning';
 const meterBatchOps = 'Meter Batch Ops';
