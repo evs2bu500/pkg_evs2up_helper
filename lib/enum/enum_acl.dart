@@ -58,6 +58,10 @@ enum AclTarget {
   meter_p_last_reading,
   meter_p_comm_status,
 
+  sensor_p_entity,
+  sensor_p_reading,
+  sensor_p_info,
+
   evs2user_p_entity,
   evs2user_p_role,
   evs2user_p_profile,
