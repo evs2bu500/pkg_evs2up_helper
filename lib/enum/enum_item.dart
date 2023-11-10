@@ -4,6 +4,11 @@ enum ItemType {
   sensor,
 }
 
+enum ItemFinderType {
+  meter,
+  sensor,
+}
+
 enum ItemIdType {
   id,
   name,
