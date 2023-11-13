@@ -1,6 +1,6 @@
 name: evs2up_helper
 description: evs2up helper package project.
-version: 2.7.2
+version: 2.7.3
 homepage:
 
 environment:
@@ -9,7 +9,7 @@ environment:
   # flutter: ">=1.17.0"
 
 dependencies:
-  fl_chart: ^0.63.0
+  fl_chart: ^0.64.0
   flutter:
     sdk: flutter
     

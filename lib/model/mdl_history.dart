@@ -10,6 +10,7 @@ enum Evs2HistoryType {
   transaction_log,
   meter_reading_3p,
   meter_reading_3p_daily,
+  sensor_reading,
 }
 
 class Evs2HistoryModel {
