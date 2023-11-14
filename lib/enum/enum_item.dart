@@ -1,6 +1,6 @@
 enum ItemType {
   meter,
-  meter3p,
+  meter_3p,
   sensor,
 }
 
