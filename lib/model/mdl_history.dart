@@ -11,6 +11,7 @@ enum Evs2HistoryType {
   meter_reading_3p,
   meter_reading_3p_daily,
   sensor_reading,
+  meter_reading_iwow,
 }
 
 class Evs2HistoryModel {
