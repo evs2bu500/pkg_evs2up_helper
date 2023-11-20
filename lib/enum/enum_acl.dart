@@ -9,6 +9,8 @@ enum AclScope {
 
   project_ems_smrt,
 
+  project_ems_cw_nus,
+
   site_nus_pgpr,
   site_nus_ync,
   site_nus_rvrc,
@@ -54,6 +56,7 @@ enum AclTarget {
   meter_p_kiv,
   meter_p_tariff,
   meter_p_reading_daily,
+  meter_p_reading_history_full,
   meter_p_daily_reading_history_full,
   meter_p_last_reading,
   meter_p_comm_status,
@@ -61,6 +64,7 @@ enum AclTarget {
   sensor_p_entity,
   sensor_p_reading,
   sensor_p_info,
+  sensor_p_reading_history_full,
 
   evs2user_p_entity,
   evs2user_p_role,
