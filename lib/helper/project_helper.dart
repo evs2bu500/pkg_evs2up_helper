@@ -11,6 +11,7 @@ enum ProjectScope {
   SG_ALL,
   GLOBAL,
   EMS_SMRT,
+  EMS_CW_NUS,
 }
 
 enum SiteScope {
@@ -38,6 +39,7 @@ const evs2Projects = [
 ];
 const emsProjects = [
   ProjectScope.EMS_SMRT,
+  ProjectScope.EMS_CW_NUS,
   ProjectScope.NONE,
 ];
 
@@ -97,9 +99,9 @@ Map<String, dynamic> getSortedScope(List<String>? scopes) {
     }
 
     if (scope.contains('project_')) {
-      projectScopes.add(getProjectScopeFromStr(scope));
+      projectScopes.add(getProjectScopeFromStr2(scope));
     } else if (scope.contains('site_')) {
-      siteScopes.add(getSiteScopeFromStr(scope));
+      siteScopes.add(getSiteScopeFromStr2(scope));
     }
   }
   // if project scope is global or sg_all,
@@ -132,99 +134,122 @@ Map<String, dynamic> getSortedScope(List<String>? scopes) {
   };
 }
 
-ProjectScope getProjectScopeFromStr(String scopeStr) {
-  if (scopeStr.toLowerCase().contains(ProjectScope.GLOBAL.name.toLowerCase())) {
-    return ProjectScope.GLOBAL;
-  }
-  if (scopeStr.toLowerCase().contains(ProjectScope.SG_ALL.name.toLowerCase())) {
-    return ProjectScope.SG_ALL;
-  }
-  if (scopeStr
-      .toLowerCase()
-      .contains(ProjectScope.EVS2_NUS.name.toLowerCase())) {
-    return ProjectScope.EVS2_NUS;
-  }
-  if (scopeStr
-      .toLowerCase()
-      .contains(ProjectScope.EVS2_SUTD.name.toLowerCase())) {
-    return ProjectScope.EVS2_SUTD;
-  }
-  if (scopeStr
-      .toLowerCase()
-      .contains(ProjectScope.EVS2_NTU.name.toLowerCase())) {
-    return ProjectScope.EVS2_NTU;
-  }
-  if (scopeStr
-      .toLowerCase()
-      .contains(ProjectScope.EVS2_SMU.name.toLowerCase())) {
-    return ProjectScope.EVS2_SMU;
-  }
-  if (scopeStr
-      .toLowerCase()
-      .contains(ProjectScope.EVS2_SIT.name.toLowerCase())) {
-    return ProjectScope.EVS2_SIT;
-  }
-  if (scopeStr
-      .toLowerCase()
-      .contains(ProjectScope.EVS2_SUSS.name.toLowerCase())) {
-    return ProjectScope.EVS2_SUSS;
-  }
-  if (scopeStr
-      .toLowerCase()
-      .contains(ProjectScope.EMS_SMRT.name.toLowerCase())) {
-    return ProjectScope.EMS_SMRT;
+// ProjectScope getProjectScopeFromStr(String scopeStr) {
+//   if (scopeStr.toLowerCase().contains(ProjectScope.GLOBAL.name.toLowerCase())) {
+//     return ProjectScope.GLOBAL;
+//   }
+//   if (scopeStr.toLowerCase().contains(ProjectScope.SG_ALL.name.toLowerCase())) {
+//     return ProjectScope.SG_ALL;
+//   }
+//   if (scopeStr
+//       .toLowerCase()
+//       .contains(ProjectScope.EVS2_NUS.name.toLowerCase())) {
+//     return ProjectScope.EVS2_NUS;
+//   }
+//   if (scopeStr
+//       .toLowerCase()
+//       .contains(ProjectScope.EVS2_SUTD.name.toLowerCase())) {
+//     return ProjectScope.EVS2_SUTD;
+//   }
+//   if (scopeStr
+//       .toLowerCase()
+//       .contains(ProjectScope.EVS2_NTU.name.toLowerCase())) {
+//     return ProjectScope.EVS2_NTU;
+//   }
+//   if (scopeStr
+//       .toLowerCase()
+//       .contains(ProjectScope.EVS2_SMU.name.toLowerCase())) {
+//     return ProjectScope.EVS2_SMU;
+//   }
+//   if (scopeStr
+//       .toLowerCase()
+//       .contains(ProjectScope.EVS2_SIT.name.toLowerCase())) {
+//     return ProjectScope.EVS2_SIT;
+//   }
+//   if (scopeStr
+//       .toLowerCase()
+//       .contains(ProjectScope.EVS2_SUSS.name.toLowerCase())) {
+//     return ProjectScope.EVS2_SUSS;
+//   }
+//   if (scopeStr
+//       .toLowerCase()
+//       .contains(ProjectScope.EMS_SMRT.name.toLowerCase())) {
+//     return ProjectScope.EMS_SMRT;
+//   }
+//   if (scopeStr
+//       .toLowerCase()
+//       .contains(ProjectScope.EMS_CW_NUS.name.toLowerCase())) {
+//     return ProjectScope.EMS_CW_NUS;
+//   }
+//   return ProjectScope.NONE;
+// }
+
+ProjectScope getProjectScopeFromStr2(String scopeStr) {
+  for (ProjectScope projectScope in ProjectScope.values) {
+    if (scopeStr.toLowerCase().contains(projectScope.name.toLowerCase())) {
+      return projectScope;
+    }
   }
   return ProjectScope.NONE;
 }
 
-SiteScope getSiteScopeFromStr(String scopeStr) {
-  if (scopeStr.toLowerCase().contains(SiteScope.GLOBAL.name.toLowerCase())) {
-    return SiteScope.GLOBAL;
-  }
-  if (scopeStr.toLowerCase().contains(SiteScope.SG_ALL.name.toLowerCase())) {
-    return SiteScope.SG_ALL;
-  }
-  if (scopeStr.toLowerCase().contains(SiteScope.NUS_PGPR.name.toLowerCase())) {
-    return SiteScope.NUS_PGPR;
-  }
-  if (scopeStr.toLowerCase().contains(SiteScope.NUS_YNC.name.toLowerCase())) {
-    return SiteScope.NUS_YNC;
-  }
-  if (scopeStr.toLowerCase().contains(SiteScope.NUS_RVRC.name.toLowerCase())) {
-    return SiteScope.NUS_RVRC;
-  }
-  if (scopeStr
-      .toLowerCase()
-      .contains(SiteScope.SUTD_CAMPUS.name.toLowerCase())) {
-    return SiteScope.SUTD_CAMPUS;
-  }
-  if (scopeStr.toLowerCase().contains(SiteScope.NTU_MR.name.toLowerCase())) {
-    return SiteScope.NTU_MR;
-  }
-  if (scopeStr
-      .toLowerCase()
-      .contains(SiteScope.SMRT_Clementi.name.toLowerCase())) {
-    return SiteScope.SMRT_Clementi;
-  }
-  if (scopeStr
-      .toLowerCase()
-      .contains(SiteScope.SMRT_Dover.name.toLowerCase())) {
-    return SiteScope.SMRT_Dover;
-  }
-  if (scopeStr
-      .toLowerCase()
-      .contains(SiteScope.SMRT_Buona_Vista.name.toLowerCase())) {
-    return SiteScope.SMRT_Buona_Vista;
-  }
-  if (scopeStr
-      .toLowerCase()
-      .contains(SiteScope.SMRT_Commonwealth.name.toLowerCase())) {
-    return SiteScope.SMRT_Commonwealth;
-  }
-  if (scopeStr
-      .toLowerCase()
-      .contains(SiteScope.SMRT_Queenstown.name.toLowerCase())) {
-    return SiteScope.SMRT_Queenstown;
+// SiteScope getSiteScopeFromStr(String scopeStr) {
+//   if (scopeStr.toLowerCase().contains(SiteScope.GLOBAL.name.toLowerCase())) {
+//     return SiteScope.GLOBAL;
+//   }
+//   if (scopeStr.toLowerCase().contains(SiteScope.SG_ALL.name.toLowerCase())) {
+//     return SiteScope.SG_ALL;
+//   }
+//   if (scopeStr.toLowerCase().contains(SiteScope.NUS_PGPR.name.toLowerCase())) {
+//     return SiteScope.NUS_PGPR;
+//   }
+//   if (scopeStr.toLowerCase().contains(SiteScope.NUS_YNC.name.toLowerCase())) {
+//     return SiteScope.NUS_YNC;
+//   }
+//   if (scopeStr.toLowerCase().contains(SiteScope.NUS_RVRC.name.toLowerCase())) {
+//     return SiteScope.NUS_RVRC;
+//   }
+//   if (scopeStr
+//       .toLowerCase()
+//       .contains(SiteScope.SUTD_CAMPUS.name.toLowerCase())) {
+//     return SiteScope.SUTD_CAMPUS;
+//   }
+//   if (scopeStr.toLowerCase().contains(SiteScope.NTU_MR.name.toLowerCase())) {
+//     return SiteScope.NTU_MR;
+//   }
+//   if (scopeStr
+//       .toLowerCase()
+//       .contains(SiteScope.SMRT_Clementi.name.toLowerCase())) {
+//     return SiteScope.SMRT_Clementi;
+//   }
+//   if (scopeStr
+//       .toLowerCase()
+//       .contains(SiteScope.SMRT_Dover.name.toLowerCase())) {
+//     return SiteScope.SMRT_Dover;
+//   }
+//   if (scopeStr
+//       .toLowerCase()
+//       .contains(SiteScope.SMRT_Buona_Vista.name.toLowerCase())) {
+//     return SiteScope.SMRT_Buona_Vista;
+//   }
+//   if (scopeStr
+//       .toLowerCase()
+//       .contains(SiteScope.SMRT_Commonwealth.name.toLowerCase())) {
+//     return SiteScope.SMRT_Commonwealth;
+//   }
+//   if (scopeStr
+//       .toLowerCase()
+//       .contains(SiteScope.SMRT_Queenstown.name.toLowerCase())) {
+//     return SiteScope.SMRT_Queenstown;
+//   }
+//   return SiteScope.NONE;
+// }
+
+SiteScope getSiteScopeFromStr2(String scopeStr) {
+  for (SiteScope siteScope in SiteScope.values) {
+    if (scopeStr.toLowerCase().contains(siteScope.name.toLowerCase())) {
+      return siteScope;
+    }
   }
   return SiteScope.NONE;
 }
@@ -234,7 +259,13 @@ List<SiteScope> getProjectSites(
   if (projectScope == null) return [];
   for (var scopeProfile in scopeProfiles) {
     if (scopeProfile['project_scope'] == projectScope) {
-      return scopeProfile['project_sites'];
+      List<SiteScope> projectSites = [];
+      if (scopeProfile['project_sites'] != null) {
+        for (SiteScope site in scopeProfile['project_sites']) {
+          projectSites.add(site);
+        }
+      }
+      return projectSites;
     }
   }
   return [];
@@ -275,6 +306,8 @@ String getProjectDisplayString(ProjectScope project) {
       return 'GLOBAL';
     case ProjectScope.EMS_SMRT:
       return 'EMS_SMRT';
+    case ProjectScope.EMS_CW_NUS:
+      return 'EMS_CW_NUS';
   }
 }
 

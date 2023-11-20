@@ -1,10 +1,10 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=c:\src\flutter
-FLUTTER_APPLICATION_PATH=C:\_dev\_evs2\_evs2up\20230301\xt_ui
+FLUTTER_ROOT=/Users/pa596/dev/flutter
+FLUTTER_APPLICATION_PATH=/Users/pa596/Developer/_evs2/_evs2op/20231120/pkg_evs2up_helper
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_BUILD_DIR=build
-FLUTTER_BUILD_NAME=0.0.1
-FLUTTER_BUILD_NUMBER=0.0.1
+FLUTTER_BUILD_NAME=2.7.5
+FLUTTER_BUILD_NUMBER=2.7.5
 DART_OBFUSCATION=false
 TRACK_WIDGET_CREATION=true
 TREE_SHAKE_ICONS=false

@@ -82,15 +82,21 @@ class ScopeProfile /*extends ChangeNotifier*/ {
         paymentSetting.add(PaymentModeSetting.fromJson(v));
       });
     }
+    List<SiteScope> projectSites = [];
+    if (json['project_sites'] != null) {
+      for (SiteScope site in json['project_sites']) {
+        projectSites.add(site);
+      }
+    }
 
     return ScopeProfile(
       projectScope: json['project_scope'],
       timezone: json['timezone'],
       currency: json['currency'],
       validateEntityName: json['validate_entity_name'],
-      allowCustomAmount: json['allow_custom_amount'],
+      allowCustomAmount: json['allow_custom_amount'] ?? false,
       paymentSetting: paymentSetting,
-      projectSites: json['project_sites'],
+      projectSites: projectSites,
     );
   }
 
