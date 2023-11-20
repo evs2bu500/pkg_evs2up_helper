@@ -304,8 +304,10 @@ class User {
       return false;
     }
     // return permission2s!.contains(Permission2.fromString('$scope:${target.name}:$op'));
-    return permission2s!
-        .any((element) => element.scope == scope && element.target == target);
+    return permission2s!.any((element) =>
+        element.scope == scope &&
+        element.target == target &&
+        element.operation == op);
   }
 
   bool showFullDashboard() {

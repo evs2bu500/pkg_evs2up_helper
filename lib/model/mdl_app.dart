@@ -38,6 +38,7 @@ const meterService = 'Meter Service';
 const sensorManager = 'Sensor Manager';
 const sensorService = 'Sensor Service';
 const meterManager = 'Meter Manager';
+const siteManager = 'Site Manager';
 const transactionService = 'Transaction Service';
 const transactionHistory = 'Transaction History';
 const topupHistory = 'Topup History';
