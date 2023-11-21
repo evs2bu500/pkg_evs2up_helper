@@ -346,16 +346,27 @@ class User {
     if (roles == null) return false;
     if (matchAll) {
       for (String role in roles!) {
+        int strsFound = 0;
         for (String roleStr in roleStrs) {
           if (!role.contains(roleStr)) {
             break;
           }
+          strsFound++;
+        }
+        if (strsFound == roleStrs.length) {
           return true;
         }
       }
       return false;
     } else {
-      return roleStrs.any((element) => roles!.contains(element));
+      for (String role in roles!) {
+        for (String roleStr in roleStrs) {
+          if (role.contains(roleStr)) {
+            return true;
+          }
+        }
+      }
+      return false;
     }
   }
 
