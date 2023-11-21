@@ -340,21 +340,23 @@ class User {
     return hasRole;
   }
 
-  bool hasRoleStr(List<String> roleStr) {
-    // roles is a list of [{name: EVS2_Admin, rank: 55}]
-    // bool hasRole = roles!.any((element) => element.contains(roleStr));
+  // in the list of user roles,
+  // find the role that has one or all of the roleStrs
+  bool hasRoleStr(List<String> roleStrs, {bool matchAll = false}) {
     if (roles == null) return false;
-    bool hasRoleStr = false;
-    for (String role in roles!) {
-      for (String str in roleStr) {
-        if (!role.contains(str)) {
-          continue;
+    if (matchAll) {
+      for (String role in roles!) {
+        for (String roleStr in roleStrs) {
+          if (!role.contains(roleStr)) {
+            break;
+          }
+          return true;
         }
-        hasRoleStr = true;
-        break;
       }
+      return false;
+    } else {
+      return roleStrs.any((element) => roles!.contains(element));
     }
-    return hasRoleStr;
   }
 
   bool useOpsDashboard() {
