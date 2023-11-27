@@ -1,23 +1,9 @@
 import '../evs2up_helper.dart';
 
-// enum ProjectScope {
-//   sg_global,
-//   evs2_nus,
-//   evs2_sutd,
-//   evs2_ntu,
-// }
-
-// enum SiteScope {
-//   nus_pgpr,
-//   nus_ync,
-//   nus_rvrc,
-//   sutd_campus,
-//   ntu_mr,
-// }
-
 class ScopeProfile /*extends ChangeNotifier*/ {
   ProjectScope projectScope;
-  List<SiteScope>? projectSites = [];
+  List<SiteScope> projectSites = [];
+  List<Map<String, dynamic>> projectSitesMap = [];
   int timezone;
   String? currency = 'SGD';
   Function? validateEntityName;
@@ -72,7 +58,8 @@ class ScopeProfile /*extends ChangeNotifier*/ {
     this.validateEntityName,
     this.allowCustomAmount,
     this.paymentSetting,
-    this.projectSites,
+    this.projectSites = const [],
+    this.projectSitesMap = const [],
   });
 
   factory ScopeProfile.fromJson(Map<String, dynamic> json) {
@@ -82,10 +69,19 @@ class ScopeProfile /*extends ChangeNotifier*/ {
         paymentSetting.add(PaymentModeSetting.fromJson(v));
       });
     }
-    List<SiteScope> projectSites = [];
+    List<SiteScope> projectSitesName = [];
+    List<Map<String, dynamic>> projectSitesMap = [];
     if (json['project_sites'] != null) {
-      for (SiteScope site in json['project_sites']) {
-        projectSites.add(site);
+      for (var site in json['project_sites']) {
+        if (site is SiteScope) {
+          projectSitesName.add(site);
+        } else {
+          projectSitesMap.add({
+            'key': site['key'],
+            'name': site['name'],
+            'color': site['color'],
+          });
+        }
       }
     }
 
@@ -96,7 +92,8 @@ class ScopeProfile /*extends ChangeNotifier*/ {
       validateEntityName: json['validate_entity_name'],
       allowCustomAmount: json['allow_custom_amount'] ?? false,
       paymentSetting: paymentSetting,
-      projectSites: projectSites,
+      projectSites: projectSitesName,
+      projectSitesMap: projectSitesMap,
     );
   }
 
