@@ -3,11 +3,15 @@ enum ItemType {
   meter_3p,
   meter_iwow,
   sensor,
+  tenant,
+  building,
 }
 
 enum ItemFinderType {
   meter,
   sensor,
+  tenant,
+  building,
 }
 
 enum ItemIdType {
