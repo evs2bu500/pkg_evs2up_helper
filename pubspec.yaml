@@ -1,6 +1,6 @@
 name: evs2up_helper
 description: evs2up helper package project.
-version: 2.7.9
+version: 2.8.0
 homepage:
 
 environment:
@@ -16,6 +16,7 @@ dependencies:
   # go_router: ^6.2.0  
   intl: ^0.18.1
   loading_animation_widget: ^1.2.0+4
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:

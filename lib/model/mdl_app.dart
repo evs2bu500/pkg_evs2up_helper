@@ -1,5 +1,5 @@
 import 'package:evs2up_helper/model/mdl_scope_profile.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'mdl_acl_setting.dart';
 import 'package:flutter/material.dart';
 
@@ -70,14 +70,16 @@ const alarmService = 'Alarm Service';
 
 class AppModel extends ChangeNotifier {
   String? subDomain;
+  // SharedPreferences prefs;
   ScopeProfile portalScopeProfile;
   String? appName;
   String? appVer;
   // int aa = 0;
 
   AppModel({
-    required this.subDomain,
     required this.portalScopeProfile,
+    // required this.prefs,
+    this.subDomain,
     this.appName,
     this.appVer,
   }) {
