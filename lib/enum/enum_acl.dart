@@ -73,6 +73,8 @@ enum AclTarget {
   evs2user_p_credit_balance,
   evs2user_p_topup_history_3months,
   evs2user_p_transaction_history_3months,
+  evs2user_p_topup_history_full,
+  evs2user_p_transaction_hisotry_full,
 
   evs2_acl_role_p_entity,
   evs2_acl_scope_p_entity,
