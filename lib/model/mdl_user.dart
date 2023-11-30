@@ -310,6 +310,33 @@ class User {
         element.operation == op);
   }
 
+  bool hasPermmision3(
+      AclScope scope, List<AclTarget> targets, List<AclOperation> ops,
+      {bool matchAll = true}) {
+    if (permission2s == null) {
+      return false;
+    }
+    if (matchAll) {
+      for (AclTarget target in targets) {
+        for (AclOperation op in ops) {
+          if (!hasPermmision2(scope, target, op)) {
+            return false;
+          }
+        }
+      }
+      return true;
+    } else {
+      for (AclTarget target in targets) {
+        for (AclOperation op in ops) {
+          if (hasPermmision2(scope, target, op)) {
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+  }
+
   bool showFullDashboard() {
     return isFullOpsAndUp();
   }

@@ -9,6 +9,7 @@ class ScopeProfile /*extends ChangeNotifier*/ {
   Function? validateEntityName;
   bool? allowCustomAmount = false;
   List<PaymentModeSetting>? paymentSetting = [];
+  List<String> meterPhases = ['1p', '3p'];
 
   ProjectScope? _selectedProjectScope;
   SiteScope? _selectedSiteScope;
@@ -60,6 +61,7 @@ class ScopeProfile /*extends ChangeNotifier*/ {
     this.paymentSetting,
     this.projectSites = const [],
     this.projectSitesMap = const [],
+    this.meterPhases = const ['1p', '3p'],
   });
 
   factory ScopeProfile.fromJson(Map<String, dynamic> json) {
@@ -84,6 +86,12 @@ class ScopeProfile /*extends ChangeNotifier*/ {
         }
       }
     }
+    if (json['meter_phases'] != null) {
+      List<String> meterPhases = [];
+      for (var phase in json['meter_phases']) {
+        meterPhases.add(phase);
+      }
+    }
 
     return ScopeProfile(
       projectScope: json['project_scope'],
@@ -94,6 +102,7 @@ class ScopeProfile /*extends ChangeNotifier*/ {
       paymentSetting: paymentSetting,
       projectSites: projectSitesName,
       projectSitesMap: projectSitesMap,
+      meterPhases: json['meter_phases'] ?? ['1p', '3p'],
     );
   }
 
