@@ -2,6 +2,8 @@ enum AclScope {
   self,
   global,
 
+  project_evs2_pa,
+
   sg_all,
   project_evs2_nus,
   project_evs2_sutd,
@@ -10,6 +12,8 @@ enum AclScope {
   project_ems_smrt,
 
   project_ems_cw_nus,
+
+  site_pa_atp,
 
   site_nus_pgpr,
   site_nus_ync,

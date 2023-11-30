@@ -1,6 +1,7 @@
 import '../evs2up_helper.dart';
 
 enum ProjectScope {
+  EVS2_PA,
   EVS2_NUS,
   EVS2_SUTD,
   EVS2_NTU,
@@ -15,6 +16,7 @@ enum ProjectScope {
 }
 
 enum SiteScope {
+  PA_ATP,
   NUS_PGPR,
   NUS_YNC,
   NUS_RVRC,
@@ -38,6 +40,7 @@ const evs2Projects = [
   ProjectScope.EVS2_NUS,
   ProjectScope.EVS2_SUTD,
   ProjectScope.EVS2_NTU,
+  ProjectScope.EVS2_PA,
   ProjectScope.SG_ALL,
   ProjectScope.NONE,
 ];
@@ -54,6 +57,7 @@ const evs2Sites = [
   SiteScope.SUTD_CAMPUS,
   SiteScope.NTU_MR,
   SiteScope.SG_ALL,
+  SiteScope.PA_ATP,
   SiteScope.NONE,
 ];
 
@@ -187,11 +191,16 @@ String getProjectScopeStrFromScopeStr(String scopeStr) {
   if (scopeStr.contains('sutd')) {
     return 'evs2_sutd';
   }
+  if (scopeStr.contains('pa')) {
+    return 'evs2_pa';
+  }
   return 'none';
 }
 
 String getSiteDisplayString(SiteScope site) {
   switch (site) {
+    case SiteScope.PA_ATP:
+      return 'ATP';
     case SiteScope.NUS_PGPR:
       return 'PGPR';
     case SiteScope.NUS_YNC:
@@ -225,6 +234,8 @@ String getSiteDisplayString(SiteScope site) {
 
 String getProjectDisplayString(ProjectScope project) {
   switch (project) {
+    case ProjectScope.EVS2_PA:
+      return 'PA';
     case ProjectScope.EVS2_NUS:
       return 'NUS';
     case ProjectScope.EVS2_NTU:
@@ -252,6 +263,8 @@ String getProjectDisplayString(ProjectScope project) {
 
 AclScope getAclProjectScope(ProjectScope? evs2project) {
   switch (evs2project) {
+    case ProjectScope.EVS2_PA:
+      return AclScope.project_evs2_pa;
     case ProjectScope.SG_ALL:
       return AclScope.global;
     case ProjectScope.EVS2_NUS:
@@ -270,6 +283,8 @@ AclScope getAclProjectScope(ProjectScope? evs2project) {
 
 AclScope getAclSiteScope(SiteScope? siteScope) {
   switch (siteScope) {
+    case SiteScope.PA_ATP:
+      return AclScope.site_pa_atp;
     case SiteScope.NUS_PGPR:
       return AclScope.site_nus_pgpr;
     case SiteScope.NUS_YNC:
