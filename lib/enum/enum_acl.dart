@@ -64,6 +64,7 @@ enum AclTarget {
   meter_p_daily_reading_history_full,
   meter_p_last_reading,
   meter_p_comm_status,
+  meter_p_trending_est_option,
 
   sensor_p_entity,
   sensor_p_reading,
