@@ -1,5 +1,4 @@
 import 'package:evs2up_helper/model/mdl_scope_profile.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'mdl_acl_setting.dart';
 import 'package:flutter/material.dart';
 
@@ -49,6 +48,7 @@ const adjCredit = 'Adjust Credit';
 const creditOps = 'Credit Ops';
 const batchCrditOps = 'Batch Credit Ops';
 const meterInfo = 'Meter Info';
+const meterConsumption = 'Consumption';
 const sensorInfo = 'Sensor Info';
 const listSearchMeter = 'List/Search Meter';
 const meterCommissioning = 'Commissioning';
