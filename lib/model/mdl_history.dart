@@ -13,6 +13,7 @@ enum Evs2HistoryType {
   sensor_reading,
   meter_reading_iwow,
   meter_consumption_summary,
+  meter_consumption_history,
 }
 
 class Evs2HistoryModel {
