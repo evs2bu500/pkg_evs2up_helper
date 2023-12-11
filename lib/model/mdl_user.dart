@@ -308,6 +308,21 @@ class User {
         element.scope == scope &&
         element.target == target &&
         element.operation == op);
+    // for (Permission2 perm2 in permission2s!) {
+    //   if (kDebugMode) {
+    //     print({
+    //       'perm2.scope:${perm2.scope} perm2.scope == $scope:${perm2.scope == scope}',
+    //       'perm2.target:${perm2.target} perm2.target == $target:${perm2.target == target}',
+    //       'perm2.operation:${perm2.operation} perm2.operation == $op:${perm2.operation == op}',
+    //     });
+    //   }
+    //   if (perm2.scope == scope &&
+    //       perm2.target == target &&
+    //       perm2.operation == op) {
+    //     return true;
+    //   }
+    // }
+    // return false;
   }
 
   bool hasPermmision3(

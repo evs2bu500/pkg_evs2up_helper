@@ -52,6 +52,7 @@ enum AclTarget {
   meter_p_entity,
   meter_p_reading,
   meter_p_info,
+  meter_p_detail,
   meter_p_rls,
   meter_p_credit_balance,
   meter_p_month_to_date_kwh_usage,
