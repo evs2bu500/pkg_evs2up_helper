@@ -47,6 +47,9 @@ class ScopeProfile /*extends ChangeNotifier*/ {
       if (_selectedProjectScope == ProjectScope.SG_ALL) {
         return AclScope.values.byName('sg_all');
       }
+      if (_selectedProjectScope == null) {
+        return AclScope.self;
+      }
       return AclScope.values
           .byName('project_${selectedProjectScope!.name.toLowerCase()}');
     }
