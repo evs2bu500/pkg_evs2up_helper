@@ -130,7 +130,16 @@ class MeterKwhHistory {
       avgVal: 0,
       medianVal: 0,
       total: 0,
-      positiveCount: 0,
+      // positiveCount: 0,
+      rawDataCount: 0,
+      expectedReadingCount: 0,
+      actualReadingCount: 0,
+      missingReadingCount: 0,
+      repeatedReadingCount: 0,
+      negativeTotalCount: 0,
+      negativeDiffCount: 0,
+      overThresholdCount: 0,
+      // estIntervals: meterKwhHistoryMeta!.estIntervals,
     );
   }
 }
@@ -146,8 +155,16 @@ class MeterHistoryMeta {
   double minValNonZero = 0;
   DateTime? minValNonZeroDt;
   double total = 0;
-  int positiveCount = 0;
+  // int positiveCount = 0;
   List<Map<String, String>>? estIntervals;
+  int rawDataCount = 0;
+  int expectedReadingCount = 0;
+  int actualReadingCount = 0;
+  int repeatedReadingCount = 0;
+  int missingReadingCount = 0;
+  int negativeTotalCount = 0;
+  int negativeDiffCount = 0;
+  int overThresholdCount = 0;
 
   MeterHistoryMeta(
       {required this.dominantInterval,
@@ -160,7 +177,15 @@ class MeterHistoryMeta {
       required this.avgVal,
       required this.medianVal,
       required this.total,
-      required this.positiveCount,
+      // required this.positiveCount,
+      required this.rawDataCount,
+      required this.expectedReadingCount,
+      required this.actualReadingCount,
+      required this.missingReadingCount,
+      required this.repeatedReadingCount,
+      required this.negativeTotalCount,
+      required this.negativeDiffCount,
+      required this.overThresholdCount,
       this.estIntervals});
 
   factory MeterHistoryMeta.fromJson(Map<String, dynamic> json) {
@@ -173,18 +198,27 @@ class MeterHistoryMeta {
       minValNonZeroDt = DateTime.parse(json['min_val_non_zero_dt']);
     }
     return MeterHistoryMeta(
-        dominantInterval: json['dominant_interval'],
-        duration: json['duration'],
-        maxVal: json['max_val'] ?? -1,
-        maxValDt: maxValDt,
-        minVal: json['min_val'] ?? -1,
-        minValNonZero: json['min_val_non_zero'] ?? -1,
-        minValNonZeroDt: minValNonZeroDt,
-        avgVal: json['avg_val'] ?? -1,
-        medianVal: json['median_val'] ?? -1,
-        total: json['total'] ?? -1,
-        positiveCount: json['positive_count'],
-        estIntervals: json['est_intervals'] ?? []);
+      dominantInterval: json['dominant_interval'],
+      duration: json['duration'],
+      maxVal: json['max_val'] ?? -1,
+      maxValDt: maxValDt,
+      minVal: json['min_val'] ?? -1,
+      minValNonZero: json['min_val_non_zero'] ?? -1,
+      minValNonZeroDt: minValNonZeroDt,
+      avgVal: json['avg_val'] ?? -1,
+      medianVal: json['median_val'] ?? -1,
+      total: json['total'] ?? -1,
+      // positiveCount: json['positive_count'] ?? -1,
+      // estIntervals: json['est_intervals'] ?? [] as List<Map<String, String>>?,
+      rawDataCount: json['raw_data_count'] ?? -1,
+      expectedReadingCount: json['expected_reading_count'] ?? -1,
+      actualReadingCount: json['actual_reading_count'] ?? -1,
+      missingReadingCount: json['missing_reading_count'] ?? -1,
+      repeatedReadingCount: json['repeated_reading_count'] ?? -1,
+      negativeTotalCount: json['negative_total_count'] ?? -1,
+      negativeDiffCount: json['negative_diff_count'] ?? -1,
+      overThresholdCount: json['over_threshold_count'] ?? -1,
+    );
   }
 
   Map<String, dynamic> toJson() {
@@ -199,8 +233,16 @@ class MeterHistoryMeta {
       'avg_val': avgVal,
       'median_val': medianVal,
       'total': total,
-      'positive_count': positiveCount,
-      'est_intervals': estIntervals
+      // 'positive_count': positiveCount,
+      'est_intervals': estIntervals,
+      'raw_data_count': rawDataCount,
+      'expected_reading_count': expectedReadingCount,
+      'actual_reading_count': actualReadingCount,
+      'negative_total_count': negativeTotalCount,
+      'negative_diff_count': negativeDiffCount,
+      'missing_reading_count': missingReadingCount,
+      'repeated_reading_count': repeatedReadingCount,
+      'over_threshold_count': overThresholdCount,
     };
   }
 }
