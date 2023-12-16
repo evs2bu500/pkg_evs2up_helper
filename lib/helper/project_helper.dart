@@ -1,3 +1,4 @@
+import '../enum/enum_item.dart';
 import '../evs2up_helper.dart';
 
 enum ProjectScope {
@@ -258,6 +259,35 @@ String getProjectDisplayString(ProjectScope project) {
       return 'EMS_SMRT';
     case ProjectScope.EMS_CW_NUS:
       return 'EMS_CW_NUS';
+  }
+}
+
+ItemType getProjectMeterType(ProjectScope project) {
+  switch (project) {
+    case ProjectScope.EVS2_PA:
+      return ItemType.meter;
+    case ProjectScope.EVS2_NUS:
+      return ItemType.meter;
+    case ProjectScope.EVS2_NTU:
+      return ItemType.meter;
+    case ProjectScope.EVS2_SUTD:
+      return ItemType.meter;
+    case ProjectScope.EVS2_SMU:
+      return ItemType.meter;
+    case ProjectScope.EVS2_SIT:
+      return ItemType.meter;
+    case ProjectScope.EVS2_SUSS:
+      return ItemType.meter;
+    case ProjectScope.NONE:
+      return ItemType.meter;
+    case ProjectScope.SG_ALL:
+      return ItemType.meter;
+    case ProjectScope.GLOBAL:
+      return ItemType.meter;
+    case ProjectScope.EMS_SMRT:
+      return ItemType.meter_3p;
+    case ProjectScope.EMS_CW_NUS:
+      return ItemType.meter_iwow;
   }
 }
 
