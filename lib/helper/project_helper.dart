@@ -198,7 +198,8 @@ String getProjectScopeStrFromScopeStr(String scopeStr) {
   return 'none';
 }
 
-String getSiteDisplayString(SiteScope site) {
+String? getSiteDisplayString(SiteScope? site) {
+  if (site == null) return null;
   switch (site) {
     case SiteScope.PA_ATP:
       return 'ATP';
@@ -230,6 +231,47 @@ String getSiteDisplayString(SiteScope site) {
       return 'U-Town';
     default:
       return 'NONE';
+  }
+}
+
+SiteScope? getSiteScopeFromStr(String? scopeStr) {
+  if (scopeStr == null || scopeStr.isEmpty) return null;
+
+  String scopeStrLower = scopeStr.toLowerCase();
+  if (scopeStrLower.contains('site_')) {
+    scopeStrLower = scopeStrLower.replaceAll('site_', '');
+  }
+  switch (scopeStrLower.toUpperCase()) {
+    case 'PA_ATP':
+      return SiteScope.PA_ATP;
+    case 'NUS_PGPR':
+      return SiteScope.NUS_PGPR;
+    case 'NUS_YNC':
+      return SiteScope.NUS_YNC;
+    case 'NUS_RVRC':
+      return SiteScope.NUS_RVRC;
+    case 'SUTD_CAMPUS':
+      return SiteScope.SUTD_CAMPUS;
+    case 'NTU_MR':
+      return SiteScope.NTU_MR;
+    case 'SMRT_Clementi':
+      return SiteScope.SMRT_Clementi;
+    case 'SMRT_Dover':
+      return SiteScope.SMRT_Dover;
+    case 'SMRT_Buona_Vista':
+      return SiteScope.SMRT_Buona_Vista;
+    case 'SMRT_Commonwealth':
+      return SiteScope.SMRT_Commonwealth;
+    case 'SMRT_Queenstown':
+      return SiteScope.SMRT_Queenstown;
+    case 'CW_NUS_KRC':
+      return SiteScope.CW_NUS_KRC;
+    case 'CW_NUS_BTC':
+      return SiteScope.CW_NUS_BTC;
+    case 'CW_NUS_U_TOWN':
+      return SiteScope.CW_NUS_U_TOWN;
+    default:
+      return SiteScope.NONE;
   }
 }
 
