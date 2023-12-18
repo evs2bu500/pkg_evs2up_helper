@@ -72,6 +72,14 @@ const emsSites = [
   SiteScope.NONE,
 ];
 
+const cwNusSites = [
+  SiteScope.CW_NUS_KRC,
+  SiteScope.CW_NUS_BTC,
+  SiteScope.CW_NUS_U_TOWN,
+  SiteScope.SG_ALL,
+  SiteScope.NONE,
+];
+
 ScopeProfile? getActivePortalScopeProfile(ProjectScope activePortalProjectScope,
     List<Map<String, dynamic>> scopeProfiles) {
   for (var scopeProfile in scopeProfiles) {
