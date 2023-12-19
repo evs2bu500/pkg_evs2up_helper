@@ -34,7 +34,7 @@ enum SiteScope {
 
   CW_NUS_KRC,
   CW_NUS_BTC,
-  CW_NUS_U_TOWN,
+  CW_NUS_UTOWN,
 }
 
 const evs2Projects = [
@@ -75,7 +75,7 @@ const emsSites = [
 const cwNusSites = [
   SiteScope.CW_NUS_KRC,
   SiteScope.CW_NUS_BTC,
-  SiteScope.CW_NUS_U_TOWN,
+  SiteScope.CW_NUS_UTOWN,
   SiteScope.SG_ALL,
   SiteScope.NONE,
 ];
@@ -235,7 +235,7 @@ String? getSiteDisplayString(SiteScope? site) {
       return 'KRC';
     case SiteScope.CW_NUS_BTC:
       return 'BTC';
-    case SiteScope.CW_NUS_U_TOWN:
+    case SiteScope.CW_NUS_UTOWN:
       return 'U-Town';
     default:
       return 'NONE';
@@ -276,8 +276,8 @@ SiteScope? getSiteScopeFromStr(String? scopeStr) {
       return SiteScope.CW_NUS_KRC;
     case 'CW_NUS_BTC':
       return SiteScope.CW_NUS_BTC;
-    case 'CW_NUS_U_TOWN':
-      return SiteScope.CW_NUS_U_TOWN;
+    case 'CW_NUS_UTOWN':
+      return SiteScope.CW_NUS_UTOWN;
     default:
       return SiteScope.NONE;
   }
