@@ -45,8 +45,6 @@ enum AclTarget {
   // meter_month_to_date_usage,
   // meter_consumer_transaction_history,
   // meter_consumer_tariff_history,
-  // evs2_acl_role_p_profile,
-  // evs2_acl_role_p_permission,
 
   //acl v2
   meter_p_entity,
@@ -86,6 +84,8 @@ enum AclTarget {
 
   evs2_acl_role_p_entity,
   evs2_acl_scope_p_entity,
+  evs2_acl_role_p_profile,
+  evs2_acl_role_p_permission,
 
   evs2_ops_dashboard_p_entity,
   evs2_ops_dashboard_p_topup_history,
