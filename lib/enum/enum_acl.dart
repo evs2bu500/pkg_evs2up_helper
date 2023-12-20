@@ -56,6 +56,7 @@ enum AclTarget {
   meter_p_month_to_date_kwh_usage,
   meter_p_bypass_policy,
   meter_p_conc,
+  meter_p_sn,
   meter_p_kiv,
   meter_p_tariff,
   meter_p_reading_daily,
