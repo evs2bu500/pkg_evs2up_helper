@@ -102,6 +102,12 @@ enum AclTarget {
 
   evs2_ops_meter_manager_p_entity,
   evs2_ops_meter_manager_p_meter_info_list_pane_switch,
+
+  tenant_p_entity,
+  tenant_p_info,
+
+  site_p_entity,
+  site_p_info,
 }
 
 enum AclOperation {

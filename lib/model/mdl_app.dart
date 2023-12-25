@@ -20,6 +20,7 @@ enum PortalPage {
   equipmentService,
   alarmService,
   paymentSuccess,
+  tenantManager,
 }
 
 //page titles
@@ -67,6 +68,8 @@ const levelService = 'Level Service';
 const levelDevices = 'Level Devices';
 const equipmentService = 'Equipment Service';
 const alarmService = 'Alarm Service';
+const tenantManager = 'Tenant Manager';
+const createTenant = 'Create Tenant';
 
 class AppModel extends ChangeNotifier {
   String? subDomain;

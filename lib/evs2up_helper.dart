@@ -26,3 +26,4 @@ export 'model/mdl_validation.dart';
 export 'model/user_provider.dart';
 export 'model/mdl_scope_profile.dart';
 export 'model/mdl_payment_mode_setting.dart';
+export 'model/mdl_tenant.dart';
