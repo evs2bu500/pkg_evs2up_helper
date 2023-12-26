@@ -10,6 +10,7 @@ enum PortalPage {
   login,
   meterKiv,
   meterService,
+  meterGroupManager,
   sensorService,
   transactionService,
   creditService,
@@ -35,6 +36,7 @@ const listPermissions = 'List Permissions';
 const createNewAccount = 'Create New Account';
 const configACL = 'Configure ACL';
 const meterService = 'Meter Service';
+const meterGroupManager = 'Meter Group Manager';
 const sensorManager = 'Sensor Manager';
 const sensorService = 'Sensor Service';
 const meterManager = 'Meter Manager';
@@ -49,7 +51,7 @@ const adjCredit = 'Adjust Credit';
 const creditOps = 'Credit Ops';
 const batchCrditOps = 'Batch Credit Ops';
 const meterInfo = 'Meter Info';
-const meterConsumption = 'Consumption';
+const meterUsage = 'Usage';
 const sensorInfo = 'Sensor Info';
 const listSearchMeter = 'List/Search Meter';
 const meterCommissioning = 'Commissioning';
@@ -70,6 +72,10 @@ const equipmentService = 'Equipment Service';
 const alarmService = 'Alarm Service';
 const tenantManager = 'Tenant Manager';
 const createTenant = 'Create Tenant';
+const tenantInfo = 'Tenant Info';
+const meterGroupInfo = 'Meter Group Info';
+const meterGroupUsage = 'Meter Group Usage';
+const createMeterGroup = 'Create Meter Group';
 
 class AppModel extends ChangeNotifier {
   String? subDomain;
