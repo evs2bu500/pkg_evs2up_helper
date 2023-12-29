@@ -1,3 +1,4 @@
+import '../enum/enum_item.dart';
 import '../evs2up_helper.dart';
 
 class ScopeProfile /*extends ChangeNotifier*/ {
@@ -10,6 +11,7 @@ class ScopeProfile /*extends ChangeNotifier*/ {
   bool? allowCustomAmount = false;
   List<PaymentModeSetting>? paymentSetting = [];
   List<String> meterPhases = ['1p', '3p'];
+  ItemType? meterType;
 
   ProjectScope? _selectedProjectScope;
   SiteScope? _selectedSiteScope;
@@ -65,6 +67,7 @@ class ScopeProfile /*extends ChangeNotifier*/ {
     this.projectSites = const [],
     this.projectSitesMap = const [],
     this.meterPhases = const ['1p', '3p'],
+    this.meterType,
   });
 
   factory ScopeProfile.fromJson(Map<String, dynamic> json) {
@@ -106,6 +109,7 @@ class ScopeProfile /*extends ChangeNotifier*/ {
       projectSites: projectSitesName,
       projectSitesMap: projectSitesMap,
       meterPhases: json['meter_phases'] ?? ['1p', '3p'],
+      meterType: json['meter_type'] ?? ItemType.meter,
     );
   }
 
