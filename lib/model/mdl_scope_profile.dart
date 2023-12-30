@@ -7,7 +7,8 @@ class ScopeProfile /*extends ChangeNotifier*/ {
   List<Map<String, dynamic>> projectSitesMap = [];
   int timezone;
   String? currency = 'SGD';
-  Function? validateEntityName;
+  String? Function(String?)? validateEntityName;
+  String? Function(String?)? validateMeterSn;
   bool? allowCustomAmount = false;
   List<PaymentModeSetting>? paymentSetting = [];
   List<String> meterPhases = ['1p', '3p'];
@@ -62,6 +63,7 @@ class ScopeProfile /*extends ChangeNotifier*/ {
     required this.timezone,
     this.currency,
     this.validateEntityName,
+    this.validateMeterSn,
     this.allowCustomAmount,
     this.paymentSetting,
     this.projectSites = const [],
@@ -103,7 +105,8 @@ class ScopeProfile /*extends ChangeNotifier*/ {
       projectScope: json['project_scope'],
       timezone: json['timezone'],
       currency: json['currency'],
-      validateEntityName: json['validate_entity_name'],
+      validateEntityName: json['validate_entity_displayname'],
+      validateMeterSn: json['validate_entity_sn'],
       allowCustomAmount: json['allow_custom_amount'] ?? false,
       paymentSetting: paymentSetting,
       projectSites: projectSitesName,
