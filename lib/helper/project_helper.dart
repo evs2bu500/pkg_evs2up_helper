@@ -219,6 +219,8 @@ String? getSiteDisplayString(SiteScope? site) {
       return 'YNC';
     case SiteScope.NUS_RVRC:
       return 'RVRC';
+    case SiteScope.NUS_UTOWN:
+      return 'U-Town';
     case SiteScope.SUTD_CAMPUS:
       return 'SUTD';
     case SiteScope.NTU_MR:
