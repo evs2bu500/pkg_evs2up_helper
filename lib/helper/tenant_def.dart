@@ -6,6 +6,8 @@ enum TenantType {
 
 enum TenantKey {
   tenant_label,
+  sap_wbs,
+  location_tag,
   tenant_type,
 }
 
