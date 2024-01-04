@@ -83,6 +83,7 @@ class AppModel extends ChangeNotifier {
   ScopeProfile portalScopeProfile;
   String? appName;
   String? appVer;
+  String? latestVer;
   // int aa = 0;
 
   AppModel({
