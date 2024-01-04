@@ -23,4 +23,5 @@ enum ItemIdType {
   qr,
   rfid,
   custom,
+  panel_tag,
 }
