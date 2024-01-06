@@ -76,6 +76,7 @@ const tenantInfo = 'Tenant Info';
 const meterGroupInfo = 'Meter Group Info';
 const meterGroupUsage = 'Meter Group Usage';
 const createMeterGroup = 'Create Meter Group';
+const userOps = 'User Ops';
 
 class AppModel extends ChangeNotifier {
   String? subDomain;

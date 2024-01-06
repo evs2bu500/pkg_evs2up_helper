@@ -76,6 +76,7 @@ enum AclTarget {
   evs2user_p_entity,
   evs2user_p_role,
   evs2user_p_profile,
+  evs2user_p_enabled,
   evs2user_p_password,
   evs2user_p_credit_balance,
   evs2user_p_topup_history_3months,

@@ -5,6 +5,8 @@ enum ItemType {
   sensor,
   tenant,
   building,
+  user,
+  meter_group,
 }
 
 enum ItemFinderType {
@@ -12,6 +14,8 @@ enum ItemFinderType {
   sensor,
   tenant,
   building,
+  user,
+  meter_group,
 }
 
 enum ItemIdType {
