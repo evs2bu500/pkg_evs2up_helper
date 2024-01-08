@@ -67,6 +67,7 @@ enum AclTarget {
   meter_p_trending_est_option,
   meter_p_consumption,
   meter_p_batch_update,
+  meter_p_cpc,
 
   sensor_p_entity,
   sensor_p_reading,
