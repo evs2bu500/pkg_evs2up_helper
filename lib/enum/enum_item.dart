@@ -28,4 +28,5 @@ enum ItemIdType {
   rfid,
   custom,
   panel_tag,
+  alt_name,
 }
