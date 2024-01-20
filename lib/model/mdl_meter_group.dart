@@ -6,6 +6,7 @@ class MeterGroup {
   String? name;
   // String? locationTag;
   // String? sapWbs;
+  String? meterInfoStr;
   MeterType? meterType;
   String? createdTimeStr;
 
@@ -15,6 +16,7 @@ class MeterGroup {
     this.name,
     // this.locationTag,
     // this.sapWbs,
+    this.meterInfoStr,
     this.meterType,
     this.createdTimeStr,
   });
@@ -26,6 +28,7 @@ class MeterGroup {
       name: json['name'] ?? '',
       // locationTag: json['location_tag'] ?? '',
       // sapWbs: json['sap_wbs'] ?? '',
+      meterInfoStr: json['meter_info_str'] ?? '',
       meterType: getMeterType((json['meter_type'] ?? '').toUpperCase()),
       createdTimeStr: json['created_timestamp'] ?? '',
     );
@@ -38,6 +41,7 @@ class MeterGroup {
       'name': name,
       // 'location_tag': locationTag,
       // 'sap_wbs': sapWbs,
+      'meter_info_str': meterInfoStr,
       'meter_type': meterType, //meterType?.name,
       'created_timestamp': createdTimeStr,
     };
