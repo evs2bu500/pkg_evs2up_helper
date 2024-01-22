@@ -6,6 +6,7 @@ class Tenant {
   String? tenantName;
   String? locationTag;
   String? sapWbs;
+  String? meterGroupInfoStr;
   TenantType? tenantType;
   String? createdTimeStr;
 
@@ -15,6 +16,7 @@ class Tenant {
     this.tenantName,
     this.locationTag,
     this.sapWbs,
+    this.meterGroupInfoStr,
     this.tenantType,
     this.createdTimeStr,
   });
@@ -26,6 +28,7 @@ class Tenant {
       tenantName: json['tenant_name'] ?? '',
       locationTag: json['location_tag'] ?? '',
       sapWbs: json['sap_wbs'] ?? '',
+      meterGroupInfoStr: json['meter_group_info_str'] ?? '',
       tenantType: TenantType.values.byName(json['type'] ?? ''),
       createdTimeStr: json['created_timestamp'] ?? '',
     );
@@ -38,6 +41,7 @@ class Tenant {
       'tenant_name': tenantName,
       'location_tag': locationTag,
       'sap_wbs': sapWbs,
+      'meter_group_info_str': meterGroupInfoStr,
       'tenant_type': tenantType?.name,
       'created_timestamp': createdTimeStr,
     };
