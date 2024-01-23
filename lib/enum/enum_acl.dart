@@ -68,6 +68,7 @@ enum AclTarget {
   meter_p_consumption,
   meter_p_batch_update,
   meter_p_cpc_policy,
+  meter_p_aclock_status,
 
   sensor_p_entity,
   sensor_p_reading,
@@ -101,6 +102,7 @@ enum AclTarget {
   evs2_ops_dashboard_p_kwh_history,
   evs2_ops_dashboard_p_comm_stat,
   evs2_ops_dashboard_p_active_count_history,
+  evs2_ops_dashboard_p_recent_active_count,
 
   evs2_ops_meter_manager_p_entity,
   evs2_ops_meter_manager_p_meter_info_list_pane_switch,
