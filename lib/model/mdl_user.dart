@@ -379,7 +379,22 @@ class User {
 
   bool hasRole2(AclRole role) {
     //roles is a list of [{name: EVS2_Admin, rank: 55}]
-    bool hasRole = roles!.any((element) => element.contains(role.name));
+
+    //"{name: EVS2_Ops_Basic, rank: 1}"
+    List<String> rolesStrList = roles!.map((e) => e.toString()).toList();
+    List<Map<String, dynamic>> rolesMap = [];
+    for (String roleStr in rolesStrList) {
+      String roleStrTrimmed =
+          roleStr.replaceAll('{', '').replaceAll('}', '').replaceAll(' ', '');
+      List<String> roleStrList = roleStrTrimmed.split(',');
+      rolesMap.add({
+        'name': roleStrList[0].split(':')[1].trim(),
+        'rank': int.tryParse(roleStrList[1].split(':')[1].trim()),
+      });
+    }
+
+    // bool hasRole = roles!.any((element) => element == role.name);
+    bool hasRole = rolesMap.any((element) => element['name'] == role.name);
     // print('hasRole2: $hasRole - ${role.name}');
     return hasRole;
   }
