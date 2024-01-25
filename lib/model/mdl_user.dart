@@ -102,6 +102,7 @@ class User {
   List<String>? scopes;
   List<ProjectScope>? projectScopes;
   List<SiteScope>? siteScopes;
+  String? resetPasswordToken;
 
   User({
     this.id,
@@ -128,6 +129,7 @@ class User {
     this.scopes,
     this.projectScopes,
     this.siteScopes,
+    this.resetPasswordToken,
   });
 
   factory User.fromJson(Map<String, dynamic> respJson) {
@@ -160,6 +162,7 @@ class User {
         fcmRegToken: userJson['fcm_reg_token'] ?? '',
         scopeStr: userJson['scope_str'] ?? '',
         // paySvcUrl: userJson['pay_svc_url'] ?? {},
+        resetPasswordToken: userJson['reset_password_token'] ?? '',
       );
     } catch (e) {
       if (kDebugMode) {
@@ -207,6 +210,7 @@ class User {
         destPortal: userJson['dest_portal'] ?? '',
         scopes: scopes,
         permission2s: permission2s,
+        resetPasswordToken: userJson['reset_password_token'] ?? '',
       );
     } catch (e) {
       if (kDebugMode) {
@@ -254,6 +258,7 @@ class User {
       'fcm_reg_token': fcmRegToken ?? '',
       'scope_str': scopeStr ?? '',
       'dest_portal': destPortal ?? '',
+      'reset_password_token': resetPasswordToken ?? '',
     };
   }
 
