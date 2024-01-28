@@ -116,6 +116,9 @@ enum AclTarget {
   meter_group_p_entity,
   meter_group_p_info,
   meter_group_p_usage,
+
+  alarm_p_entity,
+  alarm_p_info,
 }
 
 enum AclOperation {
