@@ -7,6 +7,8 @@ enum ItemType {
   building,
   user,
   meter_group,
+  concentrator,
+  concentrator_tariff,
 }
 
 enum ItemFinderType {
