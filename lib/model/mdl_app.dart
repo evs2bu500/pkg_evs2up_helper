@@ -90,6 +90,7 @@ class AppModel extends ChangeNotifier {
   String? appName;
   String? appVer;
   String? latestVer;
+  String? oreVer;
   // int aa = 0;
 
   AppModel({
@@ -98,6 +99,7 @@ class AppModel extends ChangeNotifier {
     this.subDomain,
     this.appName,
     this.appVer,
+    this.latestVer,
   }) {
     // print('AppModel constructor');
     // _portalScopeProfile = portalScopeProfile;
