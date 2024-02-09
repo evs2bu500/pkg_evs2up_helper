@@ -70,6 +70,10 @@ enum AclTarget {
   meter_p_cpc_policy,
   meter_p_aclock_status,
 
+  concentrator_p_entity,
+  concentrator_p_info,
+  concentrator_p_tariff,
+
   sensor_p_entity,
   sensor_p_reading,
   sensor_p_info,
