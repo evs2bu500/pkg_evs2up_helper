@@ -14,6 +14,7 @@ enum Evs2HistoryType {
   meter_reading_iwow,
   meter_list_usage_summary,
   meter_list_consolidated_usage_history,
+  tenant_list_usage_summary,
 }
 
 class Evs2HistoryModel {

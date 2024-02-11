@@ -113,6 +113,7 @@ enum AclTarget {
 
   tenant_p_entity,
   tenant_p_info,
+  tenant_p_usage,
 
   site_p_entity,
   site_p_info,
