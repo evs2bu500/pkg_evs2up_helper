@@ -24,6 +24,7 @@ enum PortalPage {
   alarmService,
   paymentSuccess,
   tenantManager,
+  tariffManager,
 }
 
 //page titles
@@ -77,6 +78,9 @@ const alarmService = 'Alarm Service';
 const tenantManager = 'Tenant Manager';
 const createTenant = 'Create Tenant';
 const tenantInfo = 'Tenant Info';
+const tariffManager = 'Tariff Manager';
+const tariffInfo = 'Tariff Info';
+const createTariffPackage = 'Create Tariff Package';
 const meterGroupInfo = 'Meter Group Info';
 const meterGroupUsage = 'Meter Group Usage';
 const createMeterGroup = 'Create Meter Group';

@@ -9,6 +9,7 @@ enum ItemType {
   meter_group,
   concentrator,
   concentrator_tariff,
+  tariff_package,
 }
 
 enum ItemFinderType {
@@ -18,6 +19,7 @@ enum ItemFinderType {
   building,
   user,
   meter_group,
+  tariff_package,
 }
 
 enum ItemIdType {
