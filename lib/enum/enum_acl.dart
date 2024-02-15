@@ -69,6 +69,7 @@ enum AclTarget {
   meter_p_batch_update,
   meter_p_cpc_policy,
   meter_p_aclock_status,
+  meter_p_lc_status,
 
   concentrator_p_entity,
   concentrator_p_info,

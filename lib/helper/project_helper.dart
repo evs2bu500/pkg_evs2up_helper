@@ -359,7 +359,8 @@ AclScope getAclProjectScope(ProjectScope? evs2project) {
       return AclScope.project_evs2_ntu;
     case ProjectScope.EMS_SMRT:
       return AclScope.project_ems_smrt;
-
+    case ProjectScope.EMS_CW_NUS:
+      return AclScope.project_ems_cw_nus;
     default:
       return AclScope.self;
   }
