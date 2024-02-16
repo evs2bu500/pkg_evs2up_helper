@@ -125,6 +125,15 @@ enum AclTarget {
 
   alarm_p_entity,
   alarm_p_info,
+
+  job_type_p_entity,
+  job_type_p_info,
+
+  job_p_entity,
+  job_p_info,
+
+  job_type_subscriber_p_entity,
+  job_type_subscriber_p_info,
 }
 
 enum AclOperation {

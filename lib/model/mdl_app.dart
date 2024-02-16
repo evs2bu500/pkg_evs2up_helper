@@ -25,6 +25,7 @@ enum PortalPage {
   paymentSuccess,
   tenantManager,
   tariffManager,
+  jobManager,
 }
 
 //page titles
@@ -79,6 +80,7 @@ const tenantManager = 'Tenant Manager';
 const createTenant = 'Create Tenant';
 const tenantInfo = 'Tenant Info';
 const tariffManager = 'Tariff Manager';
+const jobManager = 'Task/Report Manager';
 const tariffInfo = 'Tariff Info';
 const createTariffPackage = 'Create Tariff Package';
 const meterGroupInfo = 'Meter Group Info';
@@ -86,6 +88,7 @@ const meterGroupUsage = 'Meter Group Usage';
 const createMeterGroup = 'Create Meter Group';
 const userOps = 'User Ops';
 const meterIssueCheck = 'Issue Check';
+const taskInfo = 'Task Info';
 
 class AppModel extends ChangeNotifier {
   String? subDomain;

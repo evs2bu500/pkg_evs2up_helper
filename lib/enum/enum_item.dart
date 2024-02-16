@@ -10,6 +10,9 @@ enum ItemType {
   concentrator,
   concentrator_tariff,
   tariff_package,
+  job_type,
+  job,
+  job_type_subscriber,
 }
 
 enum ItemFinderType {
