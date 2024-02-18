@@ -12,7 +12,7 @@ enum ItemType {
   tariff_package,
   job_type,
   job,
-  job_type_subscriber,
+  job_type_sub,
 }
 
 enum ItemFinderType {
