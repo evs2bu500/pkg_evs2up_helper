@@ -10,6 +10,7 @@ enum ItemType {
   concentrator,
   concentrator_tariff,
   tariff_package,
+  tariff_rate_row,
   job_type,
   job,
   job_type_sub,
