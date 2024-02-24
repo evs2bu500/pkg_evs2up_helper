@@ -9,6 +9,10 @@ class Tenant {
   String? meterGroupInfoStr;
   TenantType? tenantType;
   String? createdTimeStr;
+  int? tpIde;
+  int? tpIdw;
+  int? tpIdb;
+  int? tpIdn;
 
   Tenant({
     this.id = 0,
@@ -19,6 +23,10 @@ class Tenant {
     this.meterGroupInfoStr,
     this.tenantType,
     this.createdTimeStr,
+    this.tpIde,
+    this.tpIdw,
+    this.tpIdb,
+    this.tpIdn,
   });
 
   factory Tenant.fromJson(Map<String, dynamic> json) {
@@ -31,6 +39,10 @@ class Tenant {
       meterGroupInfoStr: json['meter_group_info_str'] ?? '',
       tenantType: TenantType.values.byName(json['type'] ?? ''),
       createdTimeStr: json['created_timestamp'] ?? '',
+      tpIde: int.tryParse(json['tariff_package_id_e'] ?? '') ?? -1,
+      tpIdw: int.tryParse(json['tariff_package_id_w'] ?? '') ?? -1,
+      tpIdb: int.tryParse(json['tariff_package_id_b'] ?? '') ?? -1,
+      tpIdn: int.tryParse(json['tariff_package_id_n'] ?? '') ?? -1,
     );
   }
 
@@ -42,8 +54,12 @@ class Tenant {
       'location_tag': locationTag,
       'sap_wbs': sapWbs,
       'meter_group_info_str': meterGroupInfoStr,
-      'tenant_type': tenantType?.name,
+      'type': tenantType?.name,
       'created_timestamp': createdTimeStr,
+      'tariff_package_id_e': tpIde,
+      'tariff_package_id_w': tpIdw,
+      'tariff_package_id_b': tpIdb,
+      'tariff_package_id_n': tpIdn,
     };
   }
 }
