@@ -135,6 +135,9 @@ enum AclTarget {
 
   job_type_subscriber_p_entity,
   job_type_subscriber_p_info,
+
+  bill_p_entity,
+  bill_p_info,
 }
 
 enum AclOperation {
