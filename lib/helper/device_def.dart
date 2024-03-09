@@ -11,6 +11,7 @@ enum SensorType {
   pressure,
   ir,
   water_leak,
+  multi,
   unknown,
 }
 
