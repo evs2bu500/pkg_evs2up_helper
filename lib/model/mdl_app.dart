@@ -93,6 +93,7 @@ const meterIssueCheck = 'Issue Check';
 const taskInfo = 'Task Info';
 const billingRecordInfo = 'Billing Record Info';
 const listSearchBillingReord = 'List/Search Billing Record';
+const createNewBill = 'Create New Bill';
 
 class AppModel extends ChangeNotifier {
   String? subDomain;
