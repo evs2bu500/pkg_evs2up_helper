@@ -62,7 +62,7 @@ String getMeterTypeTag(MeterType meterType) {
 }
 
 MeterType? getMeterType(String meterTypeTag) {
-  switch (meterTypeTag) {
+  switch (meterTypeTag.toUpperCase()) {
     case 'E':
       return MeterType.electricity1p;
     case 'E3P':
