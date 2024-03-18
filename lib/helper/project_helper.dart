@@ -263,6 +263,8 @@ SiteScope? getSiteScopeFromStr(String? scopeStr) {
       return SiteScope.NUS_YNC;
     case 'NUS_RVRC':
       return SiteScope.NUS_RVRC;
+    case 'NUS_UTOWN':
+      return SiteScope.NUS_UTOWN;
     case 'SUTD_CAMPUS':
       return SiteScope.SUTD_CAMPUS;
     case 'NTU_MR':
