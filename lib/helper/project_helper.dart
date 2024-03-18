@@ -164,7 +164,8 @@ ProjectScope getProjectScopeFromStr2(String scopeStr) {
 
 SiteScope getSiteScopeFromStr2(String scopeStr) {
   for (SiteScope siteScope in SiteScope.values) {
-    if (scopeStr.toLowerCase().contains(siteScope.name.toLowerCase())) {
+    // if (scopeStr.toLowerCase().contains(siteScope.name.toLowerCase())) {
+    if (scopeStr.toLowerCase() == 'site_${siteScope.name.toLowerCase()}') {
       return siteScope;
     }
   }
@@ -220,7 +221,7 @@ String? getSiteDisplayString(SiteScope? site) {
     case SiteScope.NUS_RVRC:
       return 'RVRC';
     case SiteScope.NUS_UTOWN:
-      return 'U-Town';
+      return 'UTown';
     case SiteScope.SUTD_CAMPUS:
       return 'SUTD';
     case SiteScope.NTU_MR:
@@ -240,7 +241,7 @@ String? getSiteDisplayString(SiteScope? site) {
     case SiteScope.CW_NUS_BTC:
       return 'BTC';
     case SiteScope.CW_NUS_UTOWN:
-      return 'U-Town';
+      return 'UTown';
     default:
       return 'NONE';
   }
